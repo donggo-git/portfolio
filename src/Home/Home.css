@@ -8,6 +8,7 @@
 .Home_content>h1{
     margin: 10px 0;
     font-weight: 400;
+    text-align: center;
 }
 .contactInfo{
     display: flex;
@@ -21,15 +22,57 @@
     margin-right: 8px;
 }
 .description{
-    margin: 50px 0;
+    margin: 40px 0;
     width: 50%;
     font-size: 20px;
+    color: white;
+    background-color: rgba(39, 39, 39, 1);
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    opacity: 0;
+    animation-name: textingAffect;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+}
+@keyframes textingAffect {
+    0% {
+        opacity:0%;
+        transform: scaleX(0.8) translateY(20%)
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+.description::before{
+    content: "";
+    background-color: rgba(39, 39, 39, 1);
+    position: absolute;
+    top: -10px;
+    left: -32px;
+    height: 20px;
+    width: 60px;
+    transform: rotate(20deg);
+    border-end-end-radius: 50%;
+}
+.description::after{
+    content: "";
+    background-color: white;
+    position: absolute;
+    top: -5px;
+    left: -39px;
+    height: 20px;
+    width: 42px;
+    transform: rotate(40deg);
+    border-end-start-radius: 35%;
 }
 .skills_education{
     display: flex;
 }
-.skill_container,.education{
-    flex: 1;
+.skill_container{
+    flex: 0.85
 }
 .skills{
     margin: 18px 0;
@@ -43,7 +86,7 @@
     position: relative;
 }
 .skill__name{
-    padding: 4px;
+    padding: 4px 6px;
     box-shadow: 0 0 6px rgba(39, 39, 39, 0.5);
     position: absolute;
     top: 100%;
@@ -51,10 +94,30 @@
     transform: translate(-50%);
     opacity: 0;
     transition: all 0.4s;
+    width: auto;
+    min-width: 80px;
+    text-align: center;
 }
-.skill__img{
+.skill__img {
     height: 50px;
 }
 .skill__img:hover ~ .skill__name{
     opacity: 1;
+}
+
+.education_container{
+    flex: 1;
+}
+.education{
+    display: flex;
+    margin-top: 20px;
+}
+.education>img{
+    height: 100px;
+}
+.education_content{
+    margin-left: 15px;
+}
+.education_content>p{
+    margin: 5px 0;
 }

@@ -41,7 +41,7 @@ function Home({ isNavOn }) {
         }
     ]
     return (
-        <div className={`Home page ${isNavOn ? "page_navOn" : ""}`}>
+        <div className='Home page'>
             {/*full name */}
             <h1>Dong Giang Nguyen</h1>
             {/*contact information */}
@@ -52,7 +52,7 @@ function Home({ isNavOn }) {
             </ul>
             {/*description */}
             <p className='description'>
-                I’m Dong, a CSC student who passionate with building website.
+                Hi there. I’m Dong, a CSC student who passionate with building website.
                 Lack of experience, but work hard and enthusiatic.
                 Looking for internship position.
             </p>
@@ -84,8 +84,16 @@ function Home({ isNavOn }) {
                     </div>
                 </div>
                 {/*education */}
-                <div className='education'>
+                <div className='education_container'>
                     <p>EDUCATION</p>
+                    <div className='education'>
+                        <img src="https://th.bing.com/th/id/OIP.OHErfLyQ6xZB8xhFGAllWgAAAA?w=168&h=169&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+                        <div className='education_content'>
+                            <h5>SOUTH SEATTLE COLLEGE</h5>
+                            <p>degree: Associate of Science</p>
+                            <p>from: 01/2020  graduate: 10/2022</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div >

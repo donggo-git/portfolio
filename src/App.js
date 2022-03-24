@@ -12,7 +12,9 @@ function App() {
   return (
     <div>
       <Nav isNavOn={isNavOn} setNav={setNav} />
+      {/*
       <Home isNavOn={isNavOn} />
+  */}
     </div>
   );
 }
