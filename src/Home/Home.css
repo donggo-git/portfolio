@@ -1,0 +1,60 @@
+.Home{
+    height: 100%;
+    width: 100%;
+    width: 100%;
+    padding-top: 50px;
+    margin-left: 100px;
+}
+.Home_content>h1{
+    margin: 10px 0;
+    font-weight: 400;
+}
+.contactInfo{
+    display: flex;
+    list-style:none;
+}
+.contactInfo>li{
+    padding-right: 8px;
+}
+.contactInfo>li>a{
+    color: rgba(39, 39, 39, 1);
+    margin-right: 8px;
+}
+.description{
+    margin: 50px 0;
+    width: 50%;
+    font-size: 20px;
+}
+.skills_education{
+    display: flex;
+}
+.skill_container,.education{
+    flex: 1;
+}
+.skills{
+    margin: 18px 0;
+}
+.skills_content{
+    display: flex;
+}
+
+.skill{
+    margin: 10px;
+    position: relative;
+}
+.skill__name{
+    padding: 4px;
+    box-shadow: 0 0 6px rgba(39, 39, 39, 0.5);
+    position: absolute;
+    top: 100%;
+    left:50%;
+    transform: translate(-50%);
+    opacity: 0;
+    transition: all 0.4s;
+}
+.skill__img{
+    height: 50px;
+}
+.skill__img:hover ~ .skill__name{
+    opacity: 1;
+}
