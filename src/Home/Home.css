@@ -1,33 +1,52 @@
 .Home{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://media.istockphoto.com/photos/office-leather-desk-table-with-coffee-and-supplies-picture-id514411672?k=6&m=514411672&s=612x612&w=0&h=UMF2nBVbGPXsQyPRX21to22tufvXEwudpd3w6hCXkyw=') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.avatar{
+    height: 15rem;
+    width: 15rem;
+    margin: 0 50px;
+    border: 1.2px white solid;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.name_description{
+    width: 60%;
+}
+.avatar>img{
     height: 100%;
     width: 100%;
-    width: 100%;
-    padding-top: 50px;
-    margin-left: 100px;
 }
-.Home_content>h1{
-    margin: 10px 0;
+.header h1{
+    font-size: 50px;
     font-weight: 400;
-    text-align: center;
-}
-.contactInfo{
-    display: flex;
-    list-style:none;
-}
-.contactInfo>li{
-    padding-right: 8px;
-}
-.contactInfo>li>a{
-    color: rgba(39, 39, 39, 1);
-    margin-right: 8px;
+    color: rgb(255, 255, 255);
 }
 .description{
-    margin: 40px 0;
-    width: 50%;
+    margin: 20px 0;
+    width: 80%;
     font-size: 20px;
     color: white;
-    background-color: rgba(39, 39, 39, 1);
-    padding: 15px;
     border-radius: 10px;
     position: relative;
     opacity: 0;
@@ -35,6 +54,11 @@
     animation-duration: 0.8s;
     animation-fill-mode: forwards;
     animation-delay: 0.5s;
+}
+.name_description>button{
+    border: none;
+    font-size: 15px;
+    padding: 10px 20px;
 }
 @keyframes textingAffect {
     0% {
@@ -45,79 +69,4 @@
         opacity: 1;
         transform: scale(1) translateY(0);
     }
-}
-.description::before{
-    content: "";
-    background-color: rgba(39, 39, 39, 1);
-    position: absolute;
-    top: -10px;
-    left: -32px;
-    height: 20px;
-    width: 60px;
-    transform: rotate(20deg);
-    border-end-end-radius: 50%;
-}
-.description::after{
-    content: "";
-    background-color: white;
-    position: absolute;
-    top: -5px;
-    left: -39px;
-    height: 20px;
-    width: 42px;
-    transform: rotate(40deg);
-    border-end-start-radius: 35%;
-}
-.skills_education{
-    display: flex;
-}
-.skill_container{
-    flex: 0.85
-}
-.skills{
-    margin: 18px 0;
-}
-.skills_content{
-    display: flex;
-}
-
-.skill{
-    margin: 10px;
-    position: relative;
-}
-.skill__name{
-    padding: 4px 6px;
-    box-shadow: 0 0 6px rgba(39, 39, 39, 0.5);
-    position: absolute;
-    top: 100%;
-    left:50%;
-    transform: translate(-50%);
-    opacity: 0;
-    transition: all 0.4s;
-    width: auto;
-    min-width: 80px;
-    text-align: center;
-}
-.skill__img {
-    height: 50px;
-}
-.skill__img:hover ~ .skill__name{
-    opacity: 1;
-}
-
-.education_container{
-    flex: 1;
-}
-.education{
-    display: flex;
-    margin-top: 20px;
-}
-.education>img{
-    height: 100px;
-}
-.education_content{
-    margin-left: 15px;
-}
-.education_content>p{
-    margin: 5px 0;
 }

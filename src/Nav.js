@@ -4,14 +4,14 @@ import './Nav.css'
 
 function Nav() {
     const links = ['HOME', 'ABOUT ME', 'PROJECTS', 'CONTACT']
-    const [isNavOn, setIsNavOn] = useState(true);
+    const [isNavOn, setIsNavOn] = useState(false);
     const setNav = () => {
         setIsNavOn(pre => !pre)
     }
 
 
     return (
-        <div className='Nav_container'>
+        <div>
             <div className={`Nav ${isNavOn ? "" : 'NavOff'}`}>
 
                 <div
@@ -23,11 +23,6 @@ function Nav() {
                     <div className={`burger burger__second ${isNavOn ? '' : 'burger_On'}`} />
                     <div className={`burger ${isNavOn ? 'burger__third ' : 'burger_On'}`} />
                 </div>
-                {/**
-            <div className='avatar'>
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQGRDruucqyDKg/profile-displayphoto-shrink_400_400/0/1648146065805?e=1653523200&v=beta&t=iHAAanNmzSERWPKI3DI9Zvm06TNec4_bNixp4ZrTfYo" />
-            </div> 
-            */}
                 <ul className='links'>
                     {links.map((link, index) => (
                         <div
@@ -40,7 +35,10 @@ function Nav() {
                 </ul>
 
             </div>
-            <div className={`modal ${isNavOn ? 'modalOn' : ""}`}></div>
+            <div
+                className={`modal ${isNavOn ? 'modalOn' : ""}`}
+                onClick={() => setNav()}
+            ></div>
         </div>
     )
 }
