@@ -18,6 +18,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
@@ -26,12 +27,15 @@
     height: 15rem;
     width: 15rem;
     margin: 0 50px;
-    border: 1.2px white solid;
+    border: 2px white solid;
     border-radius: 50%;
     overflow: hidden;
 }
 .name_description{
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    
 }
 .avatar>img{
     height: 100%;
@@ -56,9 +60,19 @@
     animation-delay: 0.5s;
 }
 .name_description>button{
+    color: white;
     border: none;
     font-size: 15px;
     padding: 10px 20px;
+    background:none;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.4s;
+    max-width: 100px;
+}
+.name_description>button:hover{
+    background-color: rgba(255, 255, 255,0.5);
+    color: rgba(39, 39, 39);
 }
 @keyframes textingAffect {
     0% {
@@ -68,5 +82,32 @@
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
+    }
+}
+@media screen and (max-width:1000px) {
+    .header{
+        flex-direction: column;
+        padding: 0 ;
+    }
+    .avatar{
+        height: 10rem;
+        width: 10rem;
+    }
+    .name_description{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .name_description>h1{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .description{
+        width: 90%;
+        margin-left: 20px;
+    }
+    .name_description>button{
+        align-self: center;
     }
 }

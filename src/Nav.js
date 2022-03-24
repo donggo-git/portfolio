@@ -26,7 +26,7 @@ function Nav() {
                 <ul className='links'>
                     {links.map((link, index) => (
                         <div
-                            className='link'
+                            className={`link ${index == 0 ? 'link_located' : ""}`}
                             style={{ 'animationDelay': `${index * 0.1}s` }}
                         >
                             {link}
