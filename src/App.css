@@ -6,11 +6,13 @@ body{
   width: 100%;
   height: auto;
   overflow-x: hidden;
+  background-color: rgba(39, 39, 39, 1);
 }
 .page{
   height: 100vh;
   width: 100%;
   transition: all 0.6s;
+  color: white;
 }
 .page_navOn{
   transform: translateX(15%);

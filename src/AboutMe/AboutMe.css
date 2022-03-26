@@ -1,0 +1,30 @@
+.tab_container{
+    margin-top: 100px;
+}
+.tabs{
+    display: flex;
+    font-size: 20px;
+}
+.tab{
+    border: 1px solid white;
+    border-radius: 2px;
+    border-top-right-radius: 12px;
+    width: 100px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.tab:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.tab_active{
+    color: rgba(39, 39, 39, 1);
+    background-color: white;
+}
+.tab_active:hover{
+    color: rgba(39, 39, 39, 1);
+    background-color: white;
+}
+.tab_container{
+    margin-left: 50px;
+}

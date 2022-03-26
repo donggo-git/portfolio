@@ -5,9 +5,6 @@ import Home from './Home/Home'
 import AboutMe from './AboutMe/AboutMe'
 
 function App() {
-  window.addEventListener('scroll', function () {
-    console.log(window.pageYOffset)
-  })
   return (
     <div>
       <Nav />

@@ -16,7 +16,6 @@ function Nav() {
         //console.log(position)
         setScrollPosition(position);
     };
-    console.log(window.innerHeight)
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
