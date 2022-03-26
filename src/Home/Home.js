@@ -4,7 +4,12 @@ import { BsChevronDoubleDown } from 'react-icons/bs'
 import { AiOutlineFile } from 'react-icons/ai'
 
 function Home() {
-
+    const handleScrollDown = () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        })
+    }
     return (
         <div className='Home page'>
             {/*full name */}
@@ -24,7 +29,10 @@ function Home() {
                     <button>RESUME <AiOutlineFile /></button>
                 </div>
             </div>
-            <div className='scrollDown_btn'>
+            <div
+                className='scrollDown_btn'
+                onClick={() => handleScrollDown()}
+            >
                 <BsChevronDoubleDown className='scrollDown_icon scrollDown_iconDouble' />
 
             </div>

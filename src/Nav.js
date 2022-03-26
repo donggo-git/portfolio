@@ -23,8 +23,21 @@ function Nav() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-    //window height
+    /*
+    window height each link will change its style when user scroll within
+    [link index]*window height to [link index +1]*window height
+    */
     let windowHeight = window.innerHeight
+    //handle when user click in one of the links
+    const handleLink = (e, link) => {
+        e.preventDefault()
+        let index = links.indexOf(link)
+        //scroll to link user click
+        window.scrollTo({
+            top: index * windowHeight,
+            behavior: 'smooth'
+        })
+    }
     return (
         <div>
             <div className={`Nav ${isNavOn ? "" : 'NavOff'}`}>
@@ -46,7 +59,7 @@ function Nav() {
                                 scrollPosition <= (index + 1) * windowHeight ?
                                 'link_located' : ""
                                 }`}
-                            style={{ 'animationDelay': `${index * 0.1}s` }}
+                            onClick={(e) => handleLink(e, link)}
                         >
                             {link}
                         </div>
