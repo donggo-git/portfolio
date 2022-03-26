@@ -1,18 +1,18 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Nav from './Nav'
 import Home from './Home/Home'
+import AboutMe from './AboutMe/AboutMe'
 
 function App() {
-  const [isNavOn, setIsNavOn] = useState(true);
-  const setNav = () => {
-    setIsNavOn(pre => !pre)
-  }
-
+  window.addEventListener('scroll', function () {
+    console.log(window.pageYOffset)
+  })
   return (
     <div>
-      <Nav isNavOn={isNavOn} setNav={setNav} />
-      <Home isNavOn={isNavOn} />
+      <Nav />
+      <Home />
+      <AboutMe />
     </div>
   );
 }

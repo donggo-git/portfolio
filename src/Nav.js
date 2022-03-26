@@ -1,15 +1,31 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Nav.css'
 
 function Nav() {
     const links = ['HOME', 'ABOUT ME', 'PROJECTS', 'CONTACT']
+    //check nav burger
     const [isNavOn, setIsNavOn] = useState(false);
     const setNav = () => {
         setIsNavOn(pre => !pre)
     }
+    //check scroll
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        //console.log(position)
+        setScrollPosition(position);
+    };
+    console.log(window.innerHeight)
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
 
-
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    //window height
+    let windowHeight = window.innerHeight
     return (
         <div>
             <div className={`Nav ${isNavOn ? "" : 'NavOff'}`}>
@@ -26,7 +42,11 @@ function Nav() {
                 <ul className='links'>
                     {links.map((link, index) => (
                         <div
-                            className={`link ${index == 0 ? 'link_located' : ""}`}
+                            key={link}
+                            className={`link ${scrollPosition >= index * windowHeight &&
+                                scrollPosition <= (index + 1) * windowHeight ?
+                                'link_located' : ""
+                                }`}
                             style={{ 'animationDelay': `${index * 0.1}s` }}
                         >
                             {link}
