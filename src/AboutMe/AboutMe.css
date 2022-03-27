@@ -45,13 +45,12 @@
 .tab__content--active{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .section{
     padding: 0 50px;
     width: 100%;
     margin:20px 0;
-    transform: translateY(-20px);
 }
 .section>p{
     width: fit-content;
@@ -81,5 +80,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    opacity: 0;
+    transition: all 0.2s;
+}
+.skill--education{
+    flex-direction: row;
+    font-size: 20px;
+}
+.skill--education>img{
+    height: 100px;
 }

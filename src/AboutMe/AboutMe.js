@@ -46,6 +46,10 @@ function AboutMe({ scrollPosition }) {
             icons: <DiVisualstudio className='icon' />
         }
     ]
+    const skillApears = {
+        opacity: 1,
+        transitionDelay: 0.2
+    }
     const tabHandle = (e, index) => {
         //change tab
         let temTabs = tabsIsActive;
@@ -76,13 +80,23 @@ function AboutMe({ scrollPosition }) {
                                 LANGUAGE
                                 <div
                                     className='section__p--bottom'
-                                    style={scrollPosition >= windowHeight ? { width: '100%' } : {}}
+                                    style={scrollPosition >= windowHeight - 10 ? { width: '100%' } : {}}
                                 ></div>
                             </p>
 
                             <div className='section__content'>
-                                {skills.slice(0, 5).map(skill => (
-                                    <div className='skill' key={skill.name}>
+                                {skills.slice(0, 5).map((skill, index) => (
+                                    <div
+                                        className='skill' key={skill.name}
+                                        style={
+                                            scrollPosition >= windowHeight - 10 ?
+                                                {
+                                                    opacity: skillApears.opacity,
+                                                    transitionDelay: `${skillApears.transitionDelay * index}s`
+                                                } :
+                                                {}
+                                        }
+                                    >
                                         {skill.icons}
                                         <p className='skill__name'>{skill.name}</p>
 
@@ -96,13 +110,23 @@ function AboutMe({ scrollPosition }) {
                                 FRAME WORK & TECHNOLOGY
                                 <div
                                     className='section__p--bottom'
-                                    style={scrollPosition >= windowHeight ? { width: '100%' } : {}}
+                                    style={scrollPosition >= windowHeight - 10 ? { width: '100%' } : {}}
                                 ></div>
                             </p>
 
                             <div className='section__content'>
-                                {skills.slice(5).map(skill => (
-                                    <div className='skill' key={skill.name}>
+                                {skills.slice(5).map((skill, index) => (
+                                    <div
+                                        className='skill' key={skill.name}
+                                        style={
+                                            scrollPosition >= windowHeight - 10 ?
+                                                {
+                                                    opacity: skillApears.opacity,
+                                                    transitionDelay: `${skillApears.transitionDelay * index}s`
+                                                } :
+                                                {}
+                                        }
+                                    >
                                         {skill.icons}
                                         <div className='skill__name'>{skill.name}</div>
                                     </div>
@@ -111,9 +135,25 @@ function AboutMe({ scrollPosition }) {
                         </div>
                     </div>
                     <div className={`tab__content tab__content--2 ${tabsIsActive[1] ? 'tab__content--active' : ''}`}>
-                        <p>EDUCATION</p>
                         <div className='section'>
-                            <div className='education'>
+                            <p>
+                                EDUCATION
+                                <div
+                                    className='section__p--bottom'
+                                    style={scrollPosition >= windowHeight - 10 ? { width: '100%' } : {}}
+                                ></div>
+                            </p>
+                            <div
+                                className='skill skill--education'
+                                style={
+                                    scrollPosition >= windowHeight - 10 ?
+                                        {
+                                            opacity: skillApears.opacity,
+                                            transitionDelay: `${skillApears.transitionDelay}s`
+                                        } :
+                                        {}
+                                }
+                            >
                                 <img src="https://th.bing.com/th/id/OIP.OHErfLyQ6xZB8xhFGAllWgAAAA?w=168&h=169&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
                                 <div className='education_content'>
                                     <h5>SOUTH SEATTLE COLLEGE</h5>
