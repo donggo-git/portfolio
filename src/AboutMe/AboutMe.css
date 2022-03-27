@@ -60,14 +60,14 @@
     margin: 15px;
     position: relative;
 }
-.section>p::before{
-    content: '';
+.section__p--bottom{
     position: absolute;
-    top: 100%;
+    top: 90%;
     left: 0;
     background-color: rgb(39, 39, 39);
-    width: 100%;
+    width: 0;
     height: 2px;
+    transition: all 0.8s;
 }
 .section__content{
     display: flex;

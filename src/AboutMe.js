@@ -5,7 +5,7 @@ import { DiCss3, DiJavascript1, DiPython, DiJava, DiReact, DiVisualstudio } from
 import { IoLogoFirebase } from 'react-icons/io5'
 
 
-function AboutMe({ scrollPosition }) {
+function AboutMe() {
     const tabs = ['Skill', 'Education', 'Addition']
     const [tabsIsActive, setTabsIsActive] = useState([true, false, false])
     const skills = [
@@ -52,8 +52,10 @@ function AboutMe({ scrollPosition }) {
         temTabs = temTabs.map(tab => tab = false)
         temTabs[index] = true
         setTabsIsActive(temTabs)
+
+        //change tab content
+
     }
-    const windowHeight = window.innerHeight
     return (
         <div className='AboutMe page'>
             <div className='tab_container'>
@@ -72,14 +74,7 @@ function AboutMe({ scrollPosition }) {
                     <div className={`tab__content tab__content--1 ${tabsIsActive[0] ? 'tab__content--active' : ''}`}>
 
                         <div className='section'>
-                            <p>
-                                LANGUAGE
-                                <div
-                                    className='section__p--bottom'
-                                    style={scrollPosition >= windowHeight ? { width: '100%' } : {}}
-                                ></div>
-                            </p>
-
+                            <p>LANGUAGE</p>
                             <div className='section__content'>
                                 {skills.slice(0, 5).map(skill => (
                                     <div className='skill' key={skill.name}>
@@ -92,14 +87,7 @@ function AboutMe({ scrollPosition }) {
                         </div>
 
                         <div className='section'>
-                            <p>
-                                FRAME WORK & TECHNOLOGY
-                                <div
-                                    className='section__p--bottom'
-                                    style={scrollPosition >= windowHeight ? { width: '100%' } : {}}
-                                ></div>
-                            </p>
-
+                            <p>FRAME WORK & TECHNOLOGY</p>
                             <div className='section__content'>
                                 {skills.slice(5).map(skill => (
                                     <div className='skill' key={skill.name}>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import './Nav.css'
 
-function Nav() {
+function Nav({ scrollPosition }) {
     const links = ['HOME', 'ABOUT ME', 'PROJECTS', 'CONTACT']
     //check nav burger
     const [isNavOn, setIsNavOn] = useState(false);
@@ -10,19 +10,6 @@ function Nav() {
         setIsNavOn(pre => !pre)
     }
     //check scroll
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        //console.log(position)
-        setScrollPosition(position);
-    };
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
     /*
     window height each link will change its style when user scroll within
     [link index]*window height to [link index +1]*window height
