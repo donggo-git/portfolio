@@ -141,7 +141,7 @@ function AboutMe({ scrollPosition }) {
                                 <div
                                     className='section__p--bottom'
                                     style={scrollPosition >= windowHeight - 10 ? { width: '100%' } : {}}
-                                ></div>
+                                />
                             </p>
                             <div
                                 className='skill skill--education'
@@ -155,7 +155,7 @@ function AboutMe({ scrollPosition }) {
                                 }
                             >
                                 <img src="https://th.bing.com/th/id/OIP.OHErfLyQ6xZB8xhFGAllWgAAAA?w=168&h=169&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
-                                <div className='education_content'>
+                                <div className='skill--education_content'>
                                     <h5>SOUTH SEATTLE COLLEGE</h5>
                                     <p>degree: Associate of Science</p>
                                     <p>from: 01/2020  graduate: 10/2022</p>
@@ -163,7 +163,39 @@ function AboutMe({ scrollPosition }) {
                             </div>
                         </div>
                     </div>
-                    <div className={`tab__content tab__content--2 ${tabsIsActive[2] ? 'tab__content--active' : ''}`}></div>
+                    <div className={`tab__content tab__content--3 ${tabsIsActive[2] ? 'tab__content--active' : ''}`}>
+                        <div className='section'>
+                            <p>
+                                ADDITION
+                                <div
+                                    className='section__p--bottom'
+                                    style={scrollPosition >= windowHeight - 10 ? { width: '100%' } : {}}
+                                />
+                            </p>
+                            <div
+                                className='skill skill-addition'
+                                style={
+                                    scrollPosition >= windowHeight - 10 ?
+                                        {
+                                            opacity: skillApears.opacity,
+                                            transitionDelay: `${skillApears.transitionDelay}s`
+                                        } :
+                                        {}
+                                }
+                            >
+                                <p>
+                                    These are the things I don't put in my resume, but it's a part that define my personality.
+                                    Hope that it can match with your company environment by some how:
+                                </p>
+                                <ol>
+                                    <li>I'm a Vietnamese, so I can speak Vietnamese very well</li>
+                                    <li>I'm very good at communication since I used to work at a restaurant as a food server</li>
+                                    <li>I'm pretty confident with my Math since I used to participate and got certificate in a Math competition in Vietnam</li>
+                                    <li>I like to play soccer and video game</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div >

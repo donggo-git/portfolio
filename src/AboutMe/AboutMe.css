@@ -85,8 +85,25 @@
 }
 .skill--education{
     flex-direction: row;
+    font-size: 18px;
+}
+.skill--education h5{
     font-size: 20px;
 }
 .skill--education>img{
     height: 100px;
+}
+.skill--education_content{
+    margin-left: 10px;
+}
+.skill-addition{
+    align-items: flex-start;
+    width: 100%;
+    font-size: 18px;
+}
+.skill-addition>p{
+    width: calc(100% - 90px);
+}
+.skill-addition>ol{
+    margin: 20px;
 }
