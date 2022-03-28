@@ -1,0 +1,48 @@
+.Projects__btn__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    font-size: 25px;
+    transform: translate(0,-50%) scale(1);
+    transition: all 0.4s;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(212, 212, 212, 0.3);
+    border-radius: 50%;
+    z-index: 2;
+}
+.Projects__btn__container:hover{
+    transform: translate(0,-50%) scale(1.2);
+    background-color: rgba(212,212,212, 0.8);
+}
+.Projects__btn__container--Pre{
+    left: 30px;
+    
+}
+.Projects__btn__container--Next{
+    right: 30px;
+}
+.slide_container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.project_main{
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+}
+.project_main>p,.project__side>p{
+    margin: 3px 0;
+}
+.project__side{
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+    transform: scale(0.7);
+}

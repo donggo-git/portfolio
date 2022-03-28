@@ -1,5 +1,8 @@
+.AboutMe{
+    padding: 0;
+}
 .tab_container{
-    margin-top: 100px;
+    padding-top: 100px;
     margin-left: 50px;
 }
 .tabs{
@@ -36,7 +39,7 @@
     display: none;
     background-color: rgb(255, 255, 255);
     border-radius: 2px;
-    height: auto;
+    height: 100%;
     width: 100%;
     
 }

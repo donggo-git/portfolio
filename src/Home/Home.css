@@ -95,6 +95,7 @@
 .scrollDown_btn:hover{
     color: white;
 }
+
 @keyframes textingAffect {
     0% {
         opacity:0%;
