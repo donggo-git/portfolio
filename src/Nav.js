@@ -27,7 +27,13 @@ function Nav({ scrollPosition }) {
     }
     return (
         <div>
-            <div className={`Nav ${isNavOn ? "" : 'NavOff'}`}>
+            <div
+                className={`Nav ${isNavOn ? "" : 'NavOff'}`}
+                style={scrollPosition >= windowHeight ?
+                    { backgroundColor: 'rgba(39, 39, 39, 1)' } :
+                    {}
+                }
+            >
 
                 <div
                     className={`burger__container ${isNavOn ? "" : 'burger__container_On'}`}

@@ -1,5 +1,6 @@
 .tab_container{
     margin-top: 100px;
+    margin-left: 50px;
 }
 .tabs{
     display: flex;
@@ -25,9 +26,6 @@
     color: rgb(39, 39, 39);
     background-color: white;
 }
-.tab_container{
-    margin-left: 50px;
-}
 
 .tabs__content__container{
     width: calc(100% - 50px);
@@ -38,7 +36,7 @@
     display: none;
     background-color: rgb(255, 255, 255);
     border-radius: 2px;
-    height: 100%;
+    height: auto;
     width: 100%;
     
 }
@@ -88,7 +86,7 @@
     font-size: 18px;
 }
 .skill--education h5{
-    font-size: 20px;
+    font-size: 18px;
 }
 .skill--education>img{
     height: 100px;
@@ -106,4 +104,43 @@
 }
 .skill-addition>ol{
     margin: 20px;
+}
+@media screen and (max-width:1000px) {
+    .tab_container{
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+    .tabs{
+        margin-left: 20px;
+        font-size: 18px;
+    }
+    .tab{
+        width: calc((100% - 40px)/3);
+        padding-left: 0;
+    }
+    .tabs__content__container{
+        width: 100% ;
+       height: auto;
+    }
+    .tab__content{
+        height: 100%;
+        padding-bottom: 30px;
+    }
+    .section{
+        padding: 0;
+        height: auto;
+    }
+    .section>p{
+        margin: 10px 15px;
+        font-size: 20px;
+    }
+    .section__content{
+        height: 100%;
+        width: fit-content;
+        justify-content: center;
+        text-align: center;
+    }
+    .skill{
+        margin: 0 10px;
+    }
 }
