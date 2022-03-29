@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Projects.css'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
@@ -26,33 +26,47 @@ function Projects() {
             codeImgLink: ''
         },
     ]
+    const handlePre = () => {
+        setMainSlideIndex(pre => pre - 1)
+    }
+    const handleNext = () => {
+        setMainSlideIndex(pre => pre + 1)
+    }
+    const windowWidth = window.innerWidth;
+    const [slideTranslateX, setSlideTranslateX] = useState(0)
+    const [mainSlideIndex, setMainSlideIndex] = useState(0)
     return (
         <div className='page Projects'>
-            <div className=' Projects__btn__container Projects__btn__container--Pre'>
+            <div
+                className=' Projects__btn__container Projects__btn__container--Pre'
+                onClick={() => handlePre()}
+            >
                 <AiOutlineLeft />
             </div>
-            <div className=' Projects__btn__container Projects__btn__container--Next'>
+            <div
+                className=' Projects__btn__container Projects__btn__container--Next'
+                onClick={() => handleNext()}
+            >
                 <AiOutlineRight />
             </div>
-            <div className='slide_container'>
-                {/*pre project */}
-                <div className='project__side project__side--pre'>
-                    <img src={imgSlide[0].demoImgLink} height='100%' width='100%' />
-                    <p>{imgSlide[0].name}</p>
-                    <p>Source</p>
-                </div>
-                {/*main project */}
-                <div className='project_main'>
-                    <img src={imgSlide[1].demoImgLink} height='100%' width='100%' />
-                    <p>{imgSlide[1].name}</p>
-                    <p>Source</p>
-                </div>
-                {/*next project */}
-                <div className='project__side project__side--next'>
-                    <img src={imgSlide[2].demoImgLink} height='100%' width='100%' />
-                    <p>{imgSlide[2].name}</p>
-                    <p>Source</p>
-                </div>
+            <div
+                className='slide_container'
+                style={{ transform: `translate(${-mainSlideIndex * (windowWidth / 3)}px,-50%)` }}
+            >
+                {imgSlide.map((project, index) => (
+                    (
+                        <div className='project__container'>
+                            <div
+                                className='project'
+                                style={index != mainSlideIndex + 1 ? { transform: 'scale(0.7)' } : {}}
+                            >
+                                <img src={project.demoImgLink} height='100%' width='100%' />
+                                <p>{project.name}</p>
+                                <p>Source</p>
+                            </div>
+                        </div>
+                    )
+                ))}
             </div>
         </div>
     )
