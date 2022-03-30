@@ -35,7 +35,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s;
 }
 .project__container{
     width: calc(100vw / 3);

@@ -4,6 +4,13 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
 function Projects() {
     const imgSlide = [
+        //last slide clone
+        {
+            name: 'Weather App',
+            demoImgLink: 'https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/277554360_1441152686316701_8630898754858162703_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=cYxylNY9QIUAX_ybogZ&_nc_ht=scontent-sea1-1.xx&oh=00_AT-6cg2i5INe3yVPa5LEw9jvf6m-gZax41ReNAKikYe8lw&oe=624666A1',
+            codeImgLink: ''
+        },
+        //first slide
         {
             name: 'Commercial website',
             demoImgLink: 'https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/276124445_1441148449650458_4669545148965557671_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=_MISjErgnEIAX-D9FXp&_nc_ht=scontent-sea1-1.xx&oh=00_AT-W7Wei60_BcAEN2bnqQlJslLC0GerO2Ru8AoH8aCN14A&oe=6247E2DA',
@@ -15,26 +22,53 @@ function Projects() {
             demoImgLink: 'https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/276133909_1441149012983735_4063199915047674009_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=ZkD38YyTRXcAX8nIYEy&_nc_ht=scontent-sea1-1.xx&oh=00_AT972jvQ-jNH6o4WVl_78Gj-aOeCVmTBf_uO1oqdkAPngQ&oe=6247FB5C',
             codeImgLink: ''
         },
+        //last slide
         {
             name: 'Weather App',
             demoImgLink: 'https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/277554360_1441152686316701_8630898754858162703_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=cYxylNY9QIUAX_ybogZ&_nc_ht=scontent-sea1-1.xx&oh=00_AT-6cg2i5INe3yVPa5LEw9jvf6m-gZax41ReNAKikYe8lw&oe=624666A1',
             codeImgLink: ''
         },
+        //first slide clone
         {
             name: 'Commercial website',
             demoImgLink: 'https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/276124445_1441148449650458_4669545148965557671_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=_MISjErgnEIAX-D9FXp&_nc_ht=scontent-sea1-1.xx&oh=00_AT-W7Wei60_BcAEN2bnqQlJslLC0GerO2Ru8AoH8aCN14A&oe=6247E2DA',
             codeImgLink: ''
-        },
+        }
     ]
+    const [isTransition, setIsTransition] = useState()
+    const [mainSlideIndex, setMainSlideIndex] = useState(0)
+    const windowWidth = window.innerWidth;
+
     const handlePre = () => {
+        setIsTransition(true)
+        //when user go into the first slide it will change back to last slide
+        if (mainSlideIndex == 0) {
+            setIsTransition(false)
+            setMainSlideIndex(imgSlide.length - 1)
+            setTimeout(() => {
+                setIsTransition(true)
+                setMainSlideIndex(pre => pre - 1)
+            }, 0.01)
+
+        };
         setMainSlideIndex(pre => pre - 1)
     }
     const handleNext = () => {
+        setIsTransition(true)
+        //when user go into the first slide it will change back to last slide
+        if (mainSlideIndex == imgSlide.length - 3) {
+            setIsTransition(false)
+            setMainSlideIndex(-2)
+            setTimeout(() => {
+                setIsTransition(true)
+                setMainSlideIndex(pre => pre + 1)
+            }, 0.01)
+
+        };
         setMainSlideIndex(pre => pre + 1)
     }
-    const windowWidth = window.innerWidth;
-    const [slideTranslateX, setSlideTranslateX] = useState(0)
-    const [mainSlideIndex, setMainSlideIndex] = useState(0)
+
+
     return (
         <div className='page Projects'>
             <div
@@ -51,7 +85,10 @@ function Projects() {
             </div>
             <div
                 className='slide_container'
-                style={{ transform: `translate(${-mainSlideIndex * (windowWidth / 3)}px,-50%)` }}
+                style={{
+                    transform: `translate(${-mainSlideIndex * (windowWidth / 3)}px,-50%)`,
+                    transition: isTransition ? 'all 0.4s' : ''
+                }}
             >
                 {imgSlide.map((project, index) => (
                     (
