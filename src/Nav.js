@@ -21,7 +21,7 @@ function Nav({ scrollPosition }) {
         let index = links.indexOf(link)
         //scroll to link user click
         window.scrollTo({
-            top: index * windowHeight,
+            top: index * windowHeight - 30,
             behavior: 'smooth'
         })
     }
@@ -48,8 +48,8 @@ function Nav({ scrollPosition }) {
                     {links.map((link, index) => (
                         <div
                             key={link}
-                            className={`link ${scrollPosition >= index * windowHeight &&
-                                scrollPosition <= (index + 1) * windowHeight ?
+                            className={`link ${scrollPosition >= index * windowHeight - 30 &&
+                                scrollPosition < (index + 1) * windowHeight - 30 ?
                                 'link_located' : ""
                                 }`}
                             onClick={(e) => handleLink(e, link)}

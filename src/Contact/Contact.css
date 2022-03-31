@@ -1,0 +1,72 @@
+.Contact {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/000/518/363/original/abstract-background-dark-and-black-overlaps-004-vector.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin-top: 0;
+    position: relative;
+    height: fit-content;
+    padding-bottom: 30px;
+}
+
+.contactInfo__container {
+    padding-top: 50px;
+    margin-left: 30px;
+    display: flex;
+    font-size: 20px;
+}
+
+.contactInfo {
+    display: flex;
+    list-style: none;
+}
+
+.contactInfo a {
+    color: white;
+    margin: 0 5px;
+}
+
+.form {
+    margin: 30px auto;
+    margin-bottom: 0;
+    background-color: white;
+    color: rgb(39, 39, 39);
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 70vh;
+    padding: 20px;
+    justify-content: space-between;
+
+}
+
+.form__input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input>input,
+.form__input>textarea {
+    border: none;
+    font-size: 20px;
+    border-bottom: solid 1px rgb(39, 39, 39);
+    margin: 20px 0;
+    padding: 5px;
+}
+
+.form__input>input:focus {
+    outline: none;
+}
+
+.form__input--message {
+    flex: 1;
+    border: 1px solid black !important;
+    height: 300px
+}
+
+.form>button {
+
+    padding: 5px 0;
+    font-size: 20px;
+}

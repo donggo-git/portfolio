@@ -1,15 +1,18 @@
-.AboutMe{
+.AboutMe {
     padding: 0;
 }
-.tab_container{
+
+.tab_container {
     padding-top: 100px;
     margin-left: 50px;
 }
-.tabs{
+
+.tabs {
     display: flex;
     font-size: 20px;
 }
-.tab{
+
+.tab {
     border: 1px solid white;
     border-radius: 2px;
     border-top-right-radius: 12px;
@@ -18,49 +21,57 @@
     cursor: pointer;
     transition: all 0.2s;
 }
-.tab:hover{
+
+.tab:hover {
     background-color: rgba(255, 255, 255, 0.4);
 }
-.tab_active{
+
+.tab_active {
     color: rgba(39, 39, 39, 1);
     background-color: white;
 }
-.tab_active:hover{
+
+.tab_active:hover {
     color: rgb(39, 39, 39);
     background-color: white;
 }
 
-.tabs__content__container{
+.tabs__content__container {
     width: calc(100% - 50px);
-    height: calc(100vh - 150px); 
+    height: calc(100vh - 150px);
     color: rgb(39, 39, 39);
 }
-.tab__content{
+
+.tab__content {
     display: none;
     background-color: rgb(255, 255, 255);
     border-radius: 2px;
     height: 100%;
     width: 100%;
-    
+
 }
-.tab__content--active{
+
+.tab__content--active {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
-.section{
+
+.section {
     padding: 0 50px;
     width: 100%;
-    margin:20px 0;
+    margin: 20px 0;
 }
-.section>p{
+
+.section>p {
     width: fit-content;
     font-size: 25px;
     padding: 5px 0;
     margin: 15px;
     position: relative;
 }
-.section__p--bottom{
+
+.section__p--bottom {
     position: absolute;
     top: 90%;
     left: 0;
@@ -69,81 +80,102 @@
     height: 2px;
     transition: all 0.8s;
 }
-.section__content{
+
+.section__content {
     display: flex;
     width: 50%;
     justify-content: space-evenly;
 }
-.icon{
+
+.icon {
     font-size: 50px;
 }
-.skill{
+
+.skill {
     display: flex;
     flex-direction: column;
     align-items: center;
     opacity: 0;
     transition: all 0.2s;
+
 }
-.skill--education{
+
+.skill--education {
     flex-direction: row;
     font-size: 18px;
 }
-.skill--education h5{
+
+.skill--education h5 {
     font-size: 18px;
 }
-.skill--education>img{
+
+.skill--education>img {
     height: 100px;
 }
-.skill--education_content{
+
+.skill--education_content {
     margin-left: 10px;
 }
-.skill-addition{
+
+.skill-addition {
     align-items: flex-start;
     width: 100%;
     font-size: 18px;
 }
-.skill-addition>p{
+
+.skill-addition>p {
     width: calc(100% - 90px);
 }
-.skill-addition>ol{
+
+.skill-addition>ol {
     margin: 20px;
 }
+
 @media screen and (max-width:1000px) {
-    .tab_container{
+    .tab_container {
         margin-top: 20px;
         margin-left: 0px;
     }
-    .tabs{
+
+    .tabs {
         margin-left: 20px;
         font-size: 18px;
     }
-    .tab{
+
+    .tab {
         width: calc((100% - 40px)/3);
         padding-left: 0;
     }
-    .tabs__content__container{
-        width: 100% ;
-       height: auto;
+
+    .tabs__content__container {
+        width: 100%;
     }
-    .tab__content{
+
+    .tab__content {
         height: 100%;
         padding-bottom: 30px;
     }
-    .section{
+
+    .section {
         padding: 0;
         height: auto;
     }
-    .section>p{
+
+    .section>p {
         margin: 10px 15px;
         font-size: 20px;
     }
-    .section__content{
+
+    .section__content {
         height: 100%;
         width: fit-content;
         justify-content: center;
         text-align: center;
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
     }
-    .skill{
+
+    .skill {
         margin: 0 10px;
     }
 }
