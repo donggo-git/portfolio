@@ -60,16 +60,31 @@ function Projects() {
     const handleNext = () => {
         setIsTransition(true)
         //when user go into the first slide it will change back to last slide
-        if (mainSlideIndex == imgSlide.length - 3) {
-            setIsTransition(false)
-            setMainSlideIndex(-2)
-            setTimeout(() => {
-                setIsTransition(true)
-                setMainSlideIndex(pre => pre + 1)
-            }, 0.01)
+        //when user use website on the computer
+        if (windowWidth > 1000) {
+            if (mainSlideIndex == imgSlide.length - 3) {
+                setIsTransition(false)
+                setMainSlideIndex(-1)
+                setTimeout(() => {
+                    setIsTransition(true)
+                    setMainSlideIndex(pre => pre + 1)
+                }, 0.01)
 
-        };
-        setMainSlideIndex(pre => pre + 1)
+            }
+            else setMainSlideIndex(pre => pre + 1)
+        }
+        //when user use website on the phone or ipad
+        else {
+            if (mainSlideIndex == imgSlide.length - 1) {
+                setIsTransition(false)
+                setMainSlideIndex(1)
+                setTimeout(() => {
+                    setIsTransition(true)
+                    setMainSlideIndex(pre => pre + 1)
+                }, 0.01)
+            }
+            else setMainSlideIndex(pre => pre + 1)
+        }
     }
 
 
@@ -87,33 +102,44 @@ function Projects() {
             >
                 <AiOutlineRight />
             </div>
-            <div
-                className='slide_container'
-                style={{
-                    transform: `translate(${-mainSlideIndex * (windowWidth / 3)}px,-50%)`,
-                    transition: isTransition ? 'all 0.4s' : ''
-                }}
-            >
-                {imgSlide.map((project, index) => (
-                    (
-                        <div className='project__container'>
+            <div className='slider__container'>
+                <div
+                    className='slider'
+                    style={{
+                        transform: `translate(${windowWidth > 1000 ?
+                            -mainSlideIndex * (windowWidth / 3) :
+                            -mainSlideIndex * windowWidth
+                            }px,0%)`,
+                        transition: isTransition ? 'all 0.4s' : ''
+                    }}
+                >
+                    {imgSlide.map((project, index) => (
+                        (
                             <div
-                                className='project'
-                                style={index != mainSlideIndex + 1 ? { transform: 'scale(0.7)' } : {}}
+                                className='project__container'
+
                             >
-                                <a href={project.link} target='blank'>
-                                    <img src={project.demoImgLink} height='100%' width='100%' />
-                                </a>
-                                <a href={project.link} target='blank'>
-                                    <p>{project.name}</p>
-                                </a>
-                                <a href={project.codeLink} target='blank'>
-                                    <p>Source</p>
-                                </a>
+                                <div
+                                    className='project'
+                                    style={
+                                        index != mainSlideIndex + 1 && windowWidth > 1000 ?
+                                            { transform: 'scale(0.7)' } : {}
+                                    }
+                                >
+                                    <a href={project.link} target='blank'>
+                                        <img src={project.demoImgLink} height='100%' width='100%' />
+                                    </a>
+                                    <a href={project.link} target='blank'>
+                                        <p>{project.name}</p>
+                                    </a>
+                                    <a href={project.codeLink} target='blank'>
+                                        <p>Source</p>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    )
-                ))}
+                        )
+                    ))}
+                </div>
             </div>
         </div>
     )

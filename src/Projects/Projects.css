@@ -1,4 +1,4 @@
-.Projects__btn__container{
+.Projects__btn__container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     position: absolute;
     top: 50%;
     font-size: 25px;
-    transform: translate(0,-50%) scale(1);
+    transform: translate(0, -50%) scale(1);
     transition: all 0.4s;
     height: 50px;
     width: 50px;
@@ -14,33 +14,51 @@
     border-radius: 50%;
     z-index: 2;
 }
-.Projects__btn__container:hover{
-    transform: translate(0,-50%) scale(1.2);
-    background-color: rgba(212,212,212, 0.8);
+
+.Projects__btn__container:hover {
+    transform: translate(0, -50%) scale(1.2);
+    background-color: rgba(212, 212, 212, 0.8);
 }
-.Projects__btn__container--Pre{
+
+.Projects__btn__container--Pre {
     left: 30px;
-    
+
 }
-.Projects__btn__container--Next{
+
+.Projects__btn__container--Next {
     right: 30px;
 }
-.slide_container{
+
+.slider__container {
     position: absolute;
+    flex-direction: row;
+    align-items: center;
     top: 50%;
     left: 0;
+    width: 100%;
+    height: fit-content;
+    overflow-x: hidden;
+    transform: translateY(-50%);
+    display: flex;
+
+}
+
+.slider {
     height: auto;
-    min-width: 100%;
+    width: 100%;
     width: auto;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-.project__container{
+
+.project__container {
     width: calc(100vw / 3);
     font-size: 20px;
 }
-.project{
+
+.project {
     display: flex;
     width: 100%;
     height: 100%;
@@ -49,15 +67,28 @@
     justify-content: center;
     align-items: stretch;
 }
-.project>a{
+
+.project>a {
     color: white;
     text-decoration: none;
     margin: 5px auto;
     transition: font-weight 0.2s;
 }
-.project>a>p{
-    width: fit-content;   
+
+.project>a>p {
+    width: fit-content;
 }
-.project>a:hover{
-    font-weight:bolder;
+
+.project>a:hover {
+    font-weight: bolder;
+}
+
+@media screen and (max-width:1000px) {
+    .project__container {
+        width: 100vw;
+    }
+
+    .project>a {
+        margin: 5px 0;
+    }
 }

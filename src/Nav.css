@@ -1,5 +1,4 @@
-
-.Nav{
+.Nav {
     width: 100%;
     height: 50px;
     min-height: fit-content;
@@ -8,34 +7,40 @@
     flex-direction: row;
     position: fixed;
     z-index: 10;
-    padding: 10px 0;   
+    padding: 10px 0;
 }
-.burger__container{
+
+.burger__container {
     display: none;
 }
-.links{
+
+.links {
     margin-left: 100px;
     width: auto;
     display: flex;
     flex-direction: row;
 }
-.link{
+
+.link {
     margin: 10px 25px;
     padding: 0 5px;
     text-decoration: none;
     color: #b4b4b4;
     cursor: pointer;
-    font-weight: bolder; 
+    font-weight: bolder;
     transition: all 0.4s;
 }
-.link_located{
+
+.link_located {
     color: rgb(255, 255, 255);
     border-bottom: 1px solid white;
 }
-.link:hover{
+
+.link:hover {
     color: rgb(255, 255, 255);
 }
-.modal{
+
+.modal {
     height: 100%;
     width: 100%;
     background-color: rgba(39, 39, 39, 0.5);
@@ -44,12 +49,14 @@
     position: fixed;
     z-index: -1;
 }
-.modalOn{
+
+.modalOn {
     opacity: 1;
     z-index: 5;
 }
+
 @media screen and (max-width:1000px) {
-    .Nav{
+    .Nav {
         min-width: 200px;
         width: 15%;
         height: 100vh;
@@ -57,11 +64,13 @@
         flex-direction: column;
         transition: all 0.6s;
         padding: 0;
-    } 
-    .NavOff{
+    }
+
+    .NavOff {
         transform: translateX(-100%);
-    } 
-    .burger__container{
+    }
+
+    .burger__container {
         height: 30px;
         width: 30px;
         position: absolute;
@@ -73,27 +82,34 @@
         cursor: pointer;
         transition: all 0.6s;
     }
-    .burger__container_On{
+
+    .burger__container_On {
         left: 110%;
     }
-    .burger{
+
+    .burger {
         height: 2px;
         width: 100%;
         background-color: rgb(219, 219, 219);
         transition: all 0.6s;
     }
-    .burger__first{
-        transform: rotate(-25deg) scaleX(-50%) translate(20px,0px);
+
+    .burger__first {
+        transform: rotate(-25deg) scaleX(-50%) translate(20px, 0px);
     }
-    .burger__third{
-        transform: rotate(25deg) scaleX(-50%)  translate(20px,0px);   
+
+    .burger__third {
+        transform: rotate(25deg) scaleX(-50%) translate(20px, 0px);
     }
-    .links{
-        margin-top: 100px;
+
+    .links {
         margin-left: 30px;
         flex-direction: column;
+        position: fixed;
+        top: 200px;
     }
-    .link{
+
+    .link {
         margin: 15px 0;
         color: #b4b4b4;
         transition: all 0.4s;
@@ -102,26 +118,31 @@
         animation-fill-mode: forwards;
         transform: translateX(-100px);
     }
-    
-    .link_on{
+
+    .link_on {
         color: rgb(255, 255, 255);
     }
+
     @keyframes linkStart {
-        0%{
+        0% {
             transform: translateX(-100px)
         }
-        100%{
+
+        100% {
             transform: translateX(10px);
         }
     }
-    .link_located{
+
+    .link_located {
         color: white;
         border: none;
     }
-    .link:hover{
+
+    .link:hover {
         color: rgb(255, 255, 255);
     }
-    .modal{
+
+    .modal {
         height: 100%;
         width: 100%;
         background-color: rgba(39, 39, 39, 0.5);
@@ -130,8 +151,9 @@
         position: fixed;
         z-index: -1;
     }
-    .modalOn{
+
+    .modalOn {
         opacity: 1;
         z-index: 5;
-    } 
+    }
 }
