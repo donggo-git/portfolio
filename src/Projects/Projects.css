@@ -34,18 +34,16 @@
     flex-direction: row;
     align-items: center;
     top: 50%;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    width: 80%;
     height: fit-content;
     overflow-x: hidden;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     display: flex;
-
 }
 
 .slider {
     height: auto;
-    width: 100%;
     width: auto;
     display: flex;
     flex-direction: row;
@@ -54,7 +52,7 @@
 }
 
 .project__container {
-    width: calc(100vw / 3);
+    width: calc(80vw / 3);
     font-size: 20px;
 }
 
@@ -66,26 +64,60 @@
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+    background-color: white;
+    border-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
-.project>a {
-    color: white;
+.project__content {
+    height: 200px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+}
+
+.project__content>p,
+.project__content>div {
+    margin: 0 10px;
+    color: rgb(94, 94, 94);
+}
+
+.project__content--name {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0 !important;
+    color: rgb(39, 39, 39) !important;
+}
+
+.project__buttons {
+    margin: 15px 0 !important;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.project__buttons>a {
     text-decoration: none;
-    margin: 5px auto;
-    transition: font-weight 0.2s;
+    color: rgb(39, 39, 39);
+    border: 1px solid rgb(94, 94, 94);
+    padding: 5px 10px;
+    border-radius: 2px;
 }
 
-.project>a>p {
-    width: fit-content;
-}
-
-.project>a:hover {
-    font-weight: bolder;
+.project__buttons>a:hover {
+    background: rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width:1000px) {
+    .Projects__btn__container {
+        border: 1px solid rgb(39, 39, 39);
+        color: rgb(39, 39, 39);
+    }
+
     .project__container {
-        width: 100vw;
+        width: 80vw;
     }
 
     .project>a {

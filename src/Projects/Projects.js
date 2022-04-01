@@ -9,34 +9,39 @@ function Projects() {
             name: 'Weather App',
             demoImgLink: 'https://i.postimg.cc/y6vZqYYD/2022-03-28-7.png',
             link: ' https://donggo-git.github.io/weather-app/',
-            codeLink: 'https://github.com/donggo-git/weather-app'
+            codeLink: 'https://github.com/donggo-git/weather-app',
+            description: 'A simple weather app that can show the weather in a many specific places using data weatherapi'
         },
         //first slide
         {
             name: 'Commercial website',
             demoImgLink: 'https://i.postimg.cc/nzKq94J2/2022-03-28-5.png',
             link: 'https://donggo-git.github.io/shoes-selling/',
-            codeLink: 'https://github.com/donggo-git/shoes-selling'
+            codeLink: 'https://github.com/donggo-git/shoes-selling',
+            description: 'A commercial website that can add to cart, search, filter. Using firebase to store product and items in cart'
         },
         {
             name: 'Netflix Clone App',
             demoImgLink: 'https://i.postimg.cc/MpzXPC1W/2022-03-28-6.png',
             link: 'https://donggo-git.github.io/netflix-clone-app/',
-            codeLink: 'https://github.com/donggo-git/netflix-clone-app'
+            codeLink: 'https://github.com/donggo-git/netflix-clone-app',
+            description: 'A Netflix clone that can get data movie from tmdb, play trailer by react-youtube, store favorite by firebase'
         },
         //last slide
         {
             name: 'Weather App',
             demoImgLink: 'https://i.postimg.cc/y6vZqYYD/2022-03-28-7.png',
             link: ' https://donggo-git.github.io/weather-app/',
-            codeLink: 'https://github.com/donggo-git/weather-app'
+            codeLink: 'https://github.com/donggo-git/weather-app',
+            description: 'A simple weather app that can show the weather in a many specific places using data weatherapi'
         },
         //first slide clone
         {
             name: 'Commercial website',
             demoImgLink: 'https://i.postimg.cc/nzKq94J2/2022-03-28-5.png',
             link: 'https://donggo-git.github.io/shoes-selling/',
-            codeLink: 'https://github.com/donggo-git/shoes-selling'
+            codeLink: 'https://github.com/donggo-git/shoes-selling',
+            description: 'A commercial website that can add to cart, search, filter. Using firebase to store product and items in cart'
         }
     ]
     const [isTransition, setIsTransition] = useState()
@@ -107,9 +112,9 @@ function Projects() {
                     className='slider'
                     style={{
                         transform: `translate(${windowWidth > 1000 ?
-                            -mainSlideIndex * (windowWidth / 3) :
-                            -mainSlideIndex * windowWidth
-                            }px,0%)`,
+                            -mainSlideIndex * (80 / 3) :
+                            -mainSlideIndex * (80)
+                            }vw,0%)`,
                         transition: isTransition ? 'all 0.4s' : ''
                     }}
                 >
@@ -126,15 +131,29 @@ function Projects() {
                                             { transform: 'scale(0.7)' } : {}
                                     }
                                 >
+
                                     <a href={project.link} target='blank'>
                                         <img src={project.demoImgLink} height='100%' width='100%' />
                                     </a>
+                                    <div className='project__content'>
+                                        <p className='project__content--name'>{project.name}</p>
+                                        <p> {project.description}</p>
+                                        {/*
                                     <a href={project.link} target='blank'>
                                         <p>{project.name}</p>
                                     </a>
                                     <a href={project.codeLink} target='blank'>
                                         <p>Source</p>
-                                    </a>
+                                </a>*/}
+                                        <div className='project__buttons'>
+                                            <a href={project.codeLink} target='blank'>
+                                                view source
+                                            </a>
+                                            <a href={project.link} target='blank'>
+                                                visit website
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )
