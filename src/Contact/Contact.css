@@ -6,7 +6,8 @@
     background-attachment: fixed;
     margin-top: 0;
     position: relative;
-    height: 100vh;
+    min-height: 100vh !important;
+    height: fit-content;
     padding-bottom: 10px;
 
 }
@@ -55,11 +56,14 @@
     border: none;
     font-size: 20px;
     padding: 5px;
+
 }
 
 .form__input>textarea {
     margin: 20px 0;
     font-family: 'Mulish', sans-serif;
+    min-height: 50px;
+    max-height: 500px;
 }
 
 .form__input>textarea:focus {
@@ -113,4 +117,73 @@
 
 .form>button:hover {
     opacity: 0.9;
+}
+
+.contact__icons {
+    display: flex;
+    font-size: 25px;
+    width: 100%;
+    justify-content: center;
+}
+
+.contact__icon--container {
+    position: relative;
+    height: 34px;
+    width: 34px;
+    margin: 0 10px;
+    border-radius: 100%;
+    border: 1.5px solid black;
+    overflow: hidden;
+    padding: 0;
+}
+
+.contact__icon--black {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    border-radius: 100%;
+    color: white;
+    background-color: black;
+    padding: 5px;
+}
+
+.contact__icon {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: white;
+    color: black;
+    padding: 5px;
+    z-index: 5;
+    transition: all 0.4s;
+}
+
+.contact__icon--black:hover~.contact__icon {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.contact__icon:hover {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/*for ipad*/
+@media screen and (max-width:1000px) and (min-width:800px) {
+    .form {
+        width: 50%;
+    }
+
+    .form__input>textarea {
+        min-height: 100px;
+        max-height: 1000px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .form {
+        width: 80%;
+    }
 }

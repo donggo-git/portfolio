@@ -1,5 +1,6 @@
 import React from 'react'
 import './Contact.css'
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail, AiFillPhone } from 'react-icons/ai'
 
 function Contact() {
     return (
@@ -20,6 +21,24 @@ function Contact() {
                         <span className='form__textField--border'></span>
                     </div>
                     <textarea type='message' height="500px" placeholder='message' className='form__input--message' />
+                </div>
+                <div className='contact__icons'>
+                    <div className='contact__icon--container'>
+                        <AiOutlineMail className='contact__icon--black' />
+                        <AiOutlineMail className='contact__icon' />
+                    </div>
+                    <div className='contact__icon--container'>
+                        <AiFillGithub className='contact__icon--black' />
+                        <AiFillGithub className='contact__icon' />
+                    </div>
+                    <div className='contact__icon--container'>
+                        <AiFillLinkedin className='contact__icon--black' />
+                        <AiFillLinkedin className='contact__icon' />
+                    </div>
+                    <div className='contact__icon--container'>
+                        <AiFillPhone className='contact__icon--black' />
+                        <AiFillPhone className='contact__icon' />
+                    </div>
                 </div>
                 <button>submit</button>
             </div>
