@@ -2,16 +2,12 @@ import React from 'react'
 import "./Home.css"
 import { BsChevronDoubleDown } from 'react-icons/bs'
 import { AiOutlineFile } from 'react-icons/ai'
+import { Link } from 'react-scroll'
 
 function Home() {
-    const handleScrollDown = () => {
-        window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth'
-        })
-    }
+
     return (
-        <div className='Home page'>
+        <div className='Home page' name="HOME">
             {/*full name */}
             <div className='header'>
                 <div className='avatar'>
@@ -29,13 +25,15 @@ function Home() {
                     <button>RESUME <AiOutlineFile /></button>
                 </div>
             </div>
-            <div
+            <Link
                 className='scrollDown_btn'
-                onClick={() => handleScrollDown()}
+                to="ABOUT ME"
+                duration={400}
+                smooth={true}
             >
                 <BsChevronDoubleDown className='scrollDown_icon scrollDown_iconDouble' />
 
-            </div>
+            </Link>
         </div >
     )
 }

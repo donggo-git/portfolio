@@ -59,7 +59,7 @@ function AboutMe({ scrollPosition }) {
     }
     const windowHeight = window.innerHeight
     return (
-        <div className='AboutMe page'>
+        <div className='AboutMe page' name="ABOUT ME">
             <div className='tab_container'>
                 <div className='tabs'>
                     {tabs.map((tab, index) => (

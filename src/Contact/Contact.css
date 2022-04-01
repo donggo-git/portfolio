@@ -6,57 +6,94 @@
     background-attachment: fixed;
     margin-top: 0;
     position: relative;
-    height: fit-content;
+    height: 100vh;
+    padding-bottom: 10px;
+
+}
+
+.Contact>h2 {
+    padding-top: 90px;
     padding-bottom: 30px;
-}
+    margin: 0 auto;
+    width: fit-content;
 
-.contactInfo__container {
-    padding-top: 50px;
-    margin-left: 30px;
-    display: flex;
-    font-size: 20px;
-}
-
-.contactInfo {
-    display: flex;
-    list-style: none;
-}
-
-.contactInfo a {
-    color: white;
-    margin: 0 5px;
 }
 
 .form {
-    margin: 30px auto;
+    margin: 0 auto;
     margin-bottom: 0;
     background-color: white;
     color: rgb(39, 39, 39);
     display: flex;
     flex-direction: column;
-    width: 40%;
-    height: 70vh;
+    width: 30%;
+    height: fit-content;
     padding: 20px;
     justify-content: space-between;
-
+    border-radius: 5px;
 }
 
 .form__input {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.form__input>input,
+.form__textField {
+    height: fit-content;
+    margin: 20px 0;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.form__textField>input,
 .form__input>textarea {
+    width: calc(100% - 10px);
+
     border: none;
     font-size: 20px;
-    border-bottom: solid 1px rgb(39, 39, 39);
-    margin: 20px 0;
     padding: 5px;
 }
 
-.form__input>input:focus {
+.form__input>textarea {
+    margin: 20px 0;
+    font-family: 'Mulish', sans-serif;
+}
+
+.form__input>textarea:focus {
+    outline: 1px solid black;
+}
+
+.form__textField>input:focus {
     outline: none;
+}
+
+.form__textField::before {
+    content: '';
+    position: absolute;
+    top: 99%;
+    left: 0;
+    height: 0.5px;
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+}
+
+.form__textField--border {
+    content: '';
+    position: absolute;
+    top: calc(100% - 2px);
+    left: 0%;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+    transition: all 0.4s;
+    transform: translateX(-100%);
+}
+
+.form__textField>input:focus~.form__textField--border {
+    transform: translateX(0);
 }
 
 .form__input--message {
@@ -66,7 +103,14 @@
 }
 
 .form>button {
-
-    padding: 5px 0;
+    margin-top: 20px;
+    color: white;
+    background-color: rgb(39, 39, 39);
+    padding: 10px 0;
     font-size: 20px;
+    border: none;
+}
+
+.form>button:hover {
+    opacity: 0.9;
 }

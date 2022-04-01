@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-scroll'
 import './Nav.css'
 
 function Nav({ scrollPosition }) {
@@ -16,15 +17,6 @@ function Nav({ scrollPosition }) {
     */
     let windowHeight = window.innerHeight
     //handle when user click in one of the links
-    const handleLink = (e, link) => {
-        e.preventDefault()
-        let index = links.indexOf(link)
-        //scroll to link user click
-        window.scrollTo({
-            top: index * windowHeight - 30,
-            behavior: 'smooth'
-        })
-    }
     return (
         <div>
             <div
@@ -46,16 +38,20 @@ function Nav({ scrollPosition }) {
                 </div>
                 <ul className='links'>
                     {links.map((link, index) => (
-                        <div
+                        <Link
+                            to={link}
+                            smooth={true}
+                            duration={400}
+                            activeClass='link_located'
+                            className={`link `}
+                            spy={true}
                             key={link}
-                            className={`link ${scrollPosition >= index * windowHeight - 30 &&
-                                scrollPosition < (index + 1) * windowHeight - 30 ?
-                                'link_located' : ""
-                                }`}
-                            onClick={(e) => handleLink(e, link)}
+
                         >
-                            {link}
-                        </div>
+                            <div>
+                                {link}
+                            </div>
+                        </Link>
                     ))}
                 </ul>
 
