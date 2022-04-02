@@ -92,7 +92,13 @@ function Projects() {
         }
     }
 
-
+    const handleDot = (index) => {
+        setIsTransition(true)
+        if (windowWidth > 1000) {
+            setMainSlideIndex(index - 1)
+        }
+        else setMainSlideIndex(index)
+    }
     return (
         <div className='page Projects' name="PROJECTS">
             <div
@@ -111,9 +117,15 @@ function Projects() {
                 <div
                     className='slider'
                     style={{
-                        transform: `translate(${windowWidth > 1000 ?
-                            -mainSlideIndex * (80 / 3) :
-                            -mainSlideIndex * (80)
+                        transform: `translate(${
+                            //for pc or laptop
+                            windowWidth > 1000 ?
+                                -mainSlideIndex * (80 / 3) :
+                                //for tablet
+                                windowWidth > 800 ?
+                                    -mainSlideIndex * 50 :
+                                    //for phone
+                                    -mainSlideIndex * (80)
                             }vw,0%)`,
                         transition: isTransition ? 'all 0.4s' : ''
                     }}
@@ -138,13 +150,6 @@ function Projects() {
                                     <div className='project__content'>
                                         <p className='project__content--name'>{project.name}</p>
                                         <p> {project.description}</p>
-                                        {/*
-                                    <a href={project.link} target='blank'>
-                                        <p>{project.name}</p>
-                                    </a>
-                                    <a href={project.codeLink} target='blank'>
-                                        <p>Source</p>
-                                </a>*/}
                                         <div className='project__buttons'>
                                             <a href={project.codeLink} target='blank'>
                                                 view source
@@ -159,6 +164,22 @@ function Projects() {
                         )
                     ))}
                 </div>
+
+            </div>
+            <div className='slider__dots'>
+                {imgSlide.slice(1, imgSlide.length - 1).map((dot, index) => (
+                    <div
+                        className='slider__dot'
+                        style={
+                            //dot active when user click on the same slide with the dot
+                            index == mainSlideIndex ||
+                                (index == 0 && mainSlideIndex == 3) ||
+                                (index == 1 && mainSlideIndex == imgSlide.length - 1)
+                                ? { backgroundColor: 'rgba(243, 243, 243, 1)' } : {}
+                        }
+                        onClick={() => handleDot(index)}
+                    />
+                ))}
             </div>
         </div>
     )
