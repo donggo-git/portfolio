@@ -78,10 +78,10 @@ function AboutMe({ scrollPosition }) {
                         <div className='section'>
                             <p>
                                 LANGUAGE
-                                <div
+                                <span
                                     className='section__p--bottom'
                                     style={scrollPosition >= windowHeight - 10 ? { width: '100%' } : {}}
-                                ></div>
+                                ></span>
                             </p>
 
                             <div className='section__content'>
