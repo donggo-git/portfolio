@@ -3,7 +3,8 @@
     opacity: 1;
     z-index: 15;
     background-color: rgba(39, 39, 39, 1);
-    animation: disapeare 1s ease forwards 2s;
+    overflow: hidden;
+    animation: disappear 1s ease forwards 2s;
 }
 
 .logo {
@@ -19,9 +20,23 @@
     }
 }
 
-@keyframes disapeare {
+@keyframes disappear {
     to {
         opacity: 0;
         z-index: 0;
+    }
+}
+
+@media screen and (max-width:1000px) and (min-width:800px) {
+    .logo {
+        width: 500px;
+        height: 200;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .logo {
+        width: 300px;
+        height: 100px;
     }
 }

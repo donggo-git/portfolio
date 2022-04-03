@@ -10,6 +10,13 @@ body {
   background-color: rgba(39, 39, 39, 1);
 }
 
+.pages__container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  animation: pageHeight 0.1s ease 2.9s forwards;
+}
+
 .page {
   position: relative;
   height: 100vh;
@@ -20,4 +27,10 @@ body {
 
 .page_navOn {
   transform: translateX(15%);
+}
+
+@keyframes pageHeight {
+  to {
+    height: auto;
+  }
 }

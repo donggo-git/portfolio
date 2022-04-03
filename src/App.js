@@ -22,10 +22,10 @@ function App() {
     };
   }, []);
   return (
-    <div>
-      {/** */}
-      <Nav scrollPosition={scrollPosition} />
+    <div className='pages__container'>
       <Loading />
+      <Nav scrollPosition={scrollPosition} />
+
       <Home />
       <AboutMe scrollPosition={scrollPosition} />
       <Projects />
