@@ -24,20 +24,28 @@ function Contact() {
                 </div>
                 <div className='contact__icons'>
                     <div className='contact__icon--container'>
-                        <AiOutlineMail className='contact__icon--black' />
-                        <AiOutlineMail className='contact__icon' />
+                        <a href="mailto:donggnguyen12@gmail.com">
+                            <AiOutlineMail className='contact__icon--black' />
+                            <AiOutlineMail className='contact__icon' />
+                        </a>
                     </div>
                     <div className='contact__icon--container'>
-                        <AiFillGithub className='contact__icon--black' />
-                        <AiFillGithub className='contact__icon' />
+                        <a href="https://github.com/donggo-git">
+                            <AiFillGithub className='contact__icon--black' />
+                            <AiFillGithub className='contact__icon' />
+                        </a>
                     </div>
                     <div className='contact__icon--container'>
-                        <AiFillLinkedin className='contact__icon--black' />
-                        <AiFillLinkedin className='contact__icon' />
+                        <a href='https://www.linkedin.com/in/dong-nguyen-b531a9191/'>
+                            <AiFillLinkedin className='contact__icon--black' />
+                            <AiFillLinkedin className='contact__icon' />
+                        </a>
                     </div>
                     <div className='contact__icon--container'>
-                        <AiFillPhone className='contact__icon--black' />
-                        <AiFillPhone className='contact__icon' />
+                        <a href='tel:206-306-5818'>
+                            <AiFillPhone className='contact__icon--black' />
+                            <AiFillPhone className='contact__icon' />
+                        </a>
                     </div>
                 </div>
                 <button>submit</button>
