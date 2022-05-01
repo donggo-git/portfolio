@@ -26,7 +26,13 @@ function Home() {
                         Lack of experience, but work hard and enthusiatic.
                         Looking for internship position.
                     </p>
-                    <button><a href='https://filepost.io/d/SC7nmTGqPY' target="blank" download='Resume.pdf'>RESUME <AiOutlineFile /></a></button>
+                    <button>
+                        <a href="https://scedu-my.sharepoint.com/:w:/g/personal/dong_g_nguyen_seattlecolleges_edu/EVnGwpxdc8xAvB6ziInlD4QBVfxuY-gGDvSMvt0LOkV4mg?e=kSt9z3"
+                            target='blank'
+                        >
+                            RESUME <AiOutlineFile />
+                        </a>
+                    </button>
                 </div>
             </div>
             <Link
