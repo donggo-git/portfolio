@@ -46,7 +46,8 @@
     display: none;
     background-color: rgb(255, 255, 255);
     border-radius: 2px;
-    height: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
     width: 100%;
 
 }

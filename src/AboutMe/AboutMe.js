@@ -40,12 +40,7 @@ function AboutMe({ scrollPosition }) {
         {
             name: 'FIREBASE',
             icons: <IoLogoFirebase className='icon' />
-        },
-        {
-            name: 'VISUAL STUDIO CODE',
-            icons: <DiVisualstudio className='icon' />
-        }
-    ]
+        },]
     const skillApears = {
         opacity: 1,
         transitionDelay: 0.2
