@@ -23,7 +23,7 @@ function App() {
   }, []);
   return (
     <div className='pages__container'>
-      <Loading />
+      {/*<Loading />*/}
       <Nav scrollPosition={scrollPosition} />
 
       <Home />
