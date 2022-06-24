@@ -21,7 +21,7 @@ function Home() {
         setTimeout(() => typingName(), 50)
     }, [])
     return (
-        <HomePage className='page' >
+        <HomePage className='page' name="HOME">
             <HomePageContainer>
                 {/*Home content */}
                 < HomePageContent >
@@ -55,7 +55,7 @@ function Home() {
                 {/*Home images */}
                 < HomePageImages >
                     {/*Avatar */}
-                    <Avatar Avatar src="https://github.com/Sariay/Random-img/blob/master/15.jpg?raw=true" ></Avatar >
+                    <Avatar Avatar src="https://github.com/donggo-git/portfolio/blob/main/src/Home/avatar.jpg?raw=true" ></Avatar >
                     <AvatarShadow></AvatarShadow>
                 </HomePageImages >
             </HomePageContainer>
@@ -154,6 +154,10 @@ const ContactList = styled.ul`
 const Description = styled.p`
     width: 500px;
     margin-bottom: 30px;
+    @media(max-width:1000px){
+        width: 100%;
+    }
+
 `
 const ResumeBtn = styled.a`
     text-decoration: none;
@@ -173,18 +177,23 @@ const HomePageImages = styled.div`
     @media(max-width:1000px){
         order:1;
         width:100%;
-        height: 50%;
+        height: 430px;
+    }
+    @media(max-height:800px){
+        height: 350px;
     }
 `
 const Avatar = styled.img`
-    width: 250px;
-    height: 250px;
+    width: 260px;
     border-radius: 100px 200px 200px 200px;
     position: absolute;
     top:15%;
     left:50%;
     transform: translate(-50%,0%);
     z-index: 2;
+    @media(max-width:360px){
+        width: 80%;
+    }
 `
 const AvatarShadow = styled.div`
     content: '';
@@ -196,6 +205,9 @@ const AvatarShadow = styled.div`
     transform: translate(-50%,-50%);
     background-color: rgb(89, 41, 248);
     border-radius: 100px 100px 50px 200px;
+    @media(max-width:600px){
+        width:100%;
+    }
 `
 const ScrollDownBtn = styled.div`
     height: fit-content;
