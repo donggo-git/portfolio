@@ -2,10 +2,9 @@ import './App.css';
 import { useState, useEffect } from 'react'
 import Nav from './Nav'
 import Home from './Home/Home'
-import AboutMe from './AboutMe/AboutMe'
 import Projects from './Projects/Projects'
 import Contact from './Contact/Contact'
-import Loading from './Loading/Loading';
+import Skills from './Skills/Skills';
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -27,7 +26,7 @@ function App() {
       <Nav scrollPosition={scrollPosition} />
 
       <Home />
-      <AboutMe scrollPosition={scrollPosition} />
+      <Skills scrollPosition={scrollPosition} />
       <Projects />
       <Contact />
     </div>
