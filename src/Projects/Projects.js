@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Projects.css'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+import styled from 'styled-components'
 
 function Projects() {
     const imgSlide = [
@@ -28,6 +29,7 @@ function Projects() {
             description: 'A Netflix clone that can get data movie from tmdb, play trailer by react-youtube, store favorite by firebase'
         },
         //last slide
+        /*
         {
             name: 'Weather App',
             demoImgLink: 'https://i.postimg.cc/y6vZqYYD/2022-03-28-7.png',
@@ -42,7 +44,7 @@ function Projects() {
             link: 'https://donggo-git.github.io/shoes-selling/',
             codeLink: 'https://github.com/donggo-git/shoes-selling',
             description: 'A commercial website that can add to cart, search, filter. Using firebase to store product and items in cart'
-        }
+        }*/
     ]
     const [isTransition, setIsTransition] = useState()
     const [mainSlideIndex, setMainSlideIndex] = useState(0)
@@ -100,7 +102,14 @@ function Projects() {
         else setMainSlideIndex(index)
     }
     return (
-        <div className='page Projects' name="PROJECTS">
+        <ProjectsList className='page' name="PROJECTS">
+            {imgSlide.map((project, project_index) => (
+                <ProjectContainer key={project.name}>
+                    <ProjectImage src={project.demoImgLink} project_index={project_index} />
+                    <ProjectContent></ProjectContent>
+                </ProjectContainer>
+            ))}
+            {/*
             <div
                 className=' Projects__btn__container Projects__btn__container--Pre'
                 onClick={() => handlePre()}
@@ -181,8 +190,30 @@ function Projects() {
                     />
                 ))}
             </div>
-        </div>
+*/}
+        </ProjectsList>
     )
 }
+const ProjectsList = styled.div`
+    background-color: white;
+    min-height: 100vh;
+    height: auto;
+    padding 20px 0;
+`
+const ProjectContainer = styled.div`
+    margin: 20px auto;
+    width: 80%;
+    display:flex;
+    height: auto;
+    background-color: rgb(89, 41, 248);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3); 
+`
+const ProjectImage = styled.img`
+    width: 50%;
+    order: ${props => Number(props.project_index) % 2 == 0 ? '0' : '1'}
+`
+const ProjectContent = styled.div`
+    width: 50%;
+`
 
 export default Projects

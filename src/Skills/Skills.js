@@ -95,7 +95,7 @@ const SkillTitle = styled.h3`
     font-size: 32px;
     font-weight: 400px;
     @media screen and (max-width:1000px){
-        padding-top: 30px
+        padding-top: 30px;
     }
 `
 const SkillList = styled.div`
