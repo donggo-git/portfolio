@@ -1,3 +1,9 @@
+.project__showMore {
+    font-weight: 400 !important;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .Projects__btn__container {
     display: flex;
     justify-content: center;
