@@ -15,7 +15,9 @@ function Projects() {
             this._technologies_languages = technologies_languages;
         }
         getShorterDescription() {
-            return this._description.split(' ').slice(0, 15).join(" ")
+            if (window.innerWidth > 1000)
+                return this._description.split(' ').slice(0, 15).join(" ");
+            return this._description.split(' ').slice(0, 10).join(" ");
         }
         getFullDescription() {
             return this._description
@@ -250,17 +252,31 @@ const ProjectContainer = styled.div`
             margin: 80px auto;
             width: 80%;
             display:flex;
+            flex-direction: row;
             height: auto;
             background-color: rgb(89, 41, 248);
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
             transition: height 0.4s;
+            @media(max-width:1000px){
+                flex-direction: column;
+            }
+            @media(max-width:1000px) and (min-width:800px){
+                width: 60%;
+            }
             `
 const ProjectImage = styled.img`
             width: 50%;
-            order: ${props => Number(props.project_index) % 2 == 0 ? '0' : '1'}
+            order: ${props => Number(props.project_index) % 2 == 0 ? '0' : '1'};
+            @media(max-width:1000px){
+                order: 0;
+                width: 100%;
+            }
             `
 const ProjectContent = styled.div`
             width: 50%;
+            @media(max-width:1000px){
+                width: 100%;
+            }
             `
 const ProjectName = styled.h3`
             margin: 10px auto;
@@ -274,7 +290,10 @@ const ProjectDescription = styled.p`
             transition: all 0.4s;
             span{
                 font-weight: bold;
-    }
+            }
+            @media(max-width:1000px){
+                width: 90%;
+            }
             `
 const ProjectTechnologies = styled.p`
             width: 80%;
@@ -282,7 +301,10 @@ const ProjectTechnologies = styled.p`
             font-size: 18px;
             span{
                 font-weight: bold;
-    }
+            }
+            @media(max-width:1000px){
+                width: 90%;
+            }
             `
 const ProjectButtons = styled.div`
             display:flex;
@@ -299,6 +321,7 @@ const ProjectBtn = styled.a`
             padding: 8px 18px;
             border-radius: 10px;
             transition: all 0.4s;
+            margin-bottom: 20px;
             :hover{
                 background-color: rgba(255,255,255,0.4);
     }

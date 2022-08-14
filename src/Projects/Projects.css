@@ -1,6 +1,8 @@
 .project__showMore {
     font-weight: 400 !important;
-    text-decoration: underline;
+    border-bottom: 1px solid white;
+    padding-bottom: 1px;
+    width: fit-content;
     cursor: pointer;
 }
 
