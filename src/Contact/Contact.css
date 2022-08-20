@@ -1,5 +1,5 @@
 .Contact {
-    background-image: url('https://static.vecteezy.com/system/resources/previews/000/518/363/original/abstract-background-dark-and-black-overlaps-004-vector.jpg');
+    background-color: white;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -38,66 +38,43 @@ h2 {
     width: 100%;
 }
 
-.form__textField {
-    height: fit-content;
-    margin: 20px 0;
-    width: 100%;
+.Contact__Form_inputLine {
     position: relative;
-    overflow-x: hidden;
-    overflow-y: visible;
-    border-bottom: 1px solid rgb(156, 156, 156);
-    padding: 10px 0;
+    margin: 20px auto;
+    width: 60%;
 }
 
-.form__textField>input,
-.form__input>textarea {
-    width: calc(100% - 10px);
+.Contact__Form_inputTitle {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    z-index: -1;
+    color: white;
+    transition: all 0.4s;
+}
 
+.Contact__Form_input {
     border: none;
-    font-size: 20px;
-    padding: 5px;
-
+    background: none;
+    color: white;
+    padding: 3px 5px;
+    border-bottom: solid white 1px;
+    width: 100%;
+    font-size: 18px;
 }
 
-.form__input>textarea {
-    margin: 20px 0;
-    font-family: 'Mulish', sans-serif;
-    min-height: 50px;
-    max-height: 500px;
-}
-
-.form__input>textarea:focus {
-    outline: 1px solid black;
-}
-
-.form__textField>input:focus {
+.Contact__Form_input:focus {
     outline: none;
 }
 
-.form__textField::before {
-    content: '';
-    position: absolute;
-    top: 99%;
-    left: 0;
-    height: 0.5px;
-    width: 100%;
-    background-color: rgb(51, 51, 51);
-}
-
-.form__textField--border {
-    content: '';
-    position: absolute;
-    top: calc(100% - 2px);
+.Contact__Form_input:focus~.Contact__Form_inputTitle,
+.Contact__Form_input:valid~.Contact__Form_inputTitle {
+    transform: scale(0.7) translate(-20%, 0%);
+    top: -60%;
     left: 0%;
-    height: 2px;
-    width: 100%;
-    background-color: rgb(51, 51, 51);
-    transition: all 0.4s;
-    transform: translateX(-100%);
-}
-
-.form__textField>input:focus~.form__textField--border {
-    transform: translateX(0);
 }
 
 .form__input--message {
