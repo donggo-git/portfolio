@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
 import './Contact.css'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { Keyframes } from 'styled-components'
 import image1 from './image1.svg'
 import image2 from './image2.svg'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 function Contact() {
     const [isContactSubmit, setIsContactSubmit] = useState(false)
+    const formInputs = ['Name', 'Phone number', 'Email']
+
+    const submitFormHandler = function (event) {
+        event.preventDefault();
+        setIsContactSubmit(true);
+    }
     return (
         <div className='page Contact' name="CONTACT">
             {/* 
@@ -126,34 +133,76 @@ function Contact() {
                     </Contact__DoneMessage>
                 </Contact__DoneMessage_Container>
                 {/*form */}
-                <Contact__Form>
-                    <Contact__Form_title>Get in touch!</Contact__Form_title>
-                    <div className='Contact__Form_inputLine'>
+                <Contact__Form onSubmit={submitFormHandler}>
+                    <Contact__Form_title
+                        style={
+                            !isContactSubmit ?
+                                {
+                                    opacity: 1,
+                                    transitionDelay: '0.8s'
+                                } :
+                                {
+                                    opacity: 0
+                                }
+                        }
+                    >Get in touch!
+                    </Contact__Form_title>
+                    {formInputs.map((inputItem, index) => (
+                        <Contact__Form_inputLine
+                            animationDelay={index}
+                            isContactSubmit={isContactSubmit}
+                        >
 
-                        <input type='text' className='Contact__Form_input' required />
-                        <span className='Contact__Form_inputTitle'>Name</span>
-                    </div>
-                    <div className='Contact__Form_inputLine'>
-
-                        <input type='text' className='Contact__Form_input' required />
-                        <span className='Contact__Form_inputTitle'>Phone number</span>
-                    </div>
-                    <div className='Contact__Form_inputLine'>
-
-                        <input type='text' className='Contact__Form_input' required />
-                        <span className='Contact__Form_inputTitle'>Email</span>
-                    </div>
-                    <Contact__Form_message></Contact__Form_message>
+                            <Contact__Form_input
+                                type='text'
+                                id={inputItem}
+                                required
+                            />
+                            <Contact__Form_inputTitle for={inputItem}>{inputItem}</Contact__Form_inputTitle>
+                        </Contact__Form_inputLine>
+                    ))}
+                    <Contact__Form_message
+                        style={
+                            !isContactSubmit ?
+                                {
+                                    opacity: 1,
+                                    transitionDelay: '0.8s'
+                                } :
+                                {
+                                    opacity: 0
+                                }
+                        }
+                    />
                     <Contact__Form_btn
-                        onClick={() => setIsContactSubmit(true)}
+                        type='submit'
                     >
                         Submit
                     </Contact__Form_btn>
                 </Contact__Form>
             </Contact__FormContainer>
-        </div>
+        </div >
     )
 }
+//animation
+const inputAppear = keyframes`
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+`
+const inputFormAppear = keyframes`
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+`
+//style
 const Contact__FormContainer = styled.div`
     background-color: #5929F8;
     height: 80vh;
@@ -186,16 +235,6 @@ const Contact__DoneMessage_Container = styled.div`
     width: 50%;
     transition: all 0.4s;
 `
-const Contact__Form = styled.div`
-    height: 100%;
-    width: 50%;
-`
-const Contact__Form_title = styled.h3`
-    font-size: 25px;
-    font-weight: 400;
-    margin: 30px auto;
-    width: fit-content;
-`
 const Contact__Form_message = styled.textarea`
     background: none;
     border: 1px solid white;
@@ -207,7 +246,60 @@ const Contact__Form_message = styled.textarea`
     color: white;
     padding: 5px;
     font-size: 18px;
+    opacity: 0;
 `
+const Contact__Form = styled.form`
+    height: 100%;
+    width: 50%;
+`
+const Contact__Form_inputLine = styled.div`
+    opacity: 0;
+    position: relative;
+    margin: 20px auto;
+    width: 60%;
+    animation-name: ${({ isContactSubmit }) => !isContactSubmit ? inputAppear : 'none'};
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-delay: ${({ animationDelay }) => `${0.2 * (animationDelay + 1)}s`}
+`
+const Contact__Form_inputTitle = styled.label`
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    z-index: -1;
+    color: white;
+    transition: all 0.4s ease-out;
+`
+const Contact__Form_input = styled.input`
+    border: none;
+    background: none;
+    color: white;
+    padding: 3px 5px;
+    border-bottom: solid white 1px;
+    width: 100%;
+    font-size: 18px;
+    :focus{
+        outline: none;
+    }
+    :focus~${Contact__Form_inputTitle},
+    :valid~${Contact__Form_inputTitle}{
+        transform: scale(0.7) translate(-20%, 0%);
+        top: -60%;
+        left: 0%;
+    }
+`
+const Contact__Form_title = styled.h3`
+    font-size: 25px;
+    font-weight: 400;
+    margin: 30px auto;
+    width: fit-content;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+`
+
 const Contact__Form_btn = styled.button`
     width: 60%;
     margin: 0 auto;
@@ -220,6 +312,9 @@ const Contact__Form_btn = styled.button`
     font-size: 15px;
     cursor: pointer;
     transition: all 0.4s;
+    opacity: ${({ isContactSubmit }) => !isContactSubmit ? 1 : 0};
+    transition-delay: 0.6s;
+    transition: all 0.3s
     :hover{
         background-color: #e7e7e7
     }
@@ -250,4 +345,5 @@ const Contact__DoneMessage = styled.p`
     margin: 0 auto;
     font-size: 18px;
 `
+
 export default Contact

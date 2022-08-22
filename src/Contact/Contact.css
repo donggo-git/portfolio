@@ -44,38 +44,6 @@ h2 {
     width: 60%;
 }
 
-.Contact__Form_inputTitle {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    z-index: -1;
-    color: white;
-    transition: all 0.4s;
-}
-
-.Contact__Form_input {
-    border: none;
-    background: none;
-    color: white;
-    padding: 3px 5px;
-    border-bottom: solid white 1px;
-    width: 100%;
-    font-size: 18px;
-}
-
-.Contact__Form_input:focus {
-    outline: none;
-}
-
-.Contact__Form_input:focus~.Contact__Form_inputTitle,
-.Contact__Form_input:valid~.Contact__Form_inputTitle {
-    transform: scale(0.7) translate(-20%, 0%);
-    top: -60%;
-    left: 0%;
-}
 
 .form__input--message {
     flex: 1;
