@@ -1,67 +1,89 @@
 import React, { useState } from 'react'
 import './Contact.css'
 import styled, { keyframes } from 'styled-components'
-import { Keyframes } from 'styled-components'
+//import { Email } from './smtp'
+import emailjs from '@emailjs/browser'
+
 import image1 from './image1.svg'
 import image2 from './image2.svg'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
+
 function Contact() {
+
     const [isContactSubmit, setIsContactSubmit] = useState(false)
+    const [contactInput, setContactInput] = useState({
+        'Name': '',
+        'Phone number': '',
+        'Email': '',
+        'Message': ''
+    })
     const formInputs = ['Name', 'Phone number', 'Email']
+
+
+    const inputHandler = (event) => {
+        const eventName = event.target.id;
+        const eventValue = event.target.value;
+        //change input value
+        let updateInput = { ...contactInput }
+        updateInput[eventName] = eventValue
+        setContactInput(updateInput)
+    }
+    const emailValidate = (email) => {
+        let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return res.test(email);
+    }
 
     const submitFormHandler = function (event) {
         event.preventDefault();
+        //check if anything wrong with user input
+        for (let input in contactInput) {
+            //if any input field is empty cannot submit
+            const inputField = input
+            const inputValue = contactInput[input]
+
+            if (inputValue === '') {
+                alert('please check your contact form some field is missing')
+                return;
+            }
+            //if phone number input value is not number
+            if (inputField == 'Phone number' && isNaN(Number(inputValue.split(' ').join('')))) {
+                alert('Please check your phone number again, NOT NUMBER');
+                return;
+            }
+            //if phone number input value is negative cannot submit
+            if (inputField == 'Phone number' && Number(inputValue.split(' ').join('')) < 0) {
+                alert('Invalid phone number, NEGATIVE NUMBER');
+                return;
+            }
+            //if email input is invalid
+            if (inputField == 'Email' && !emailValidate(inputValue)) {
+                alert('Invalid email');
+                return;
+            }
+        }
+        //sending message
+        emailjs.send("service_ziqugtn", "template_s7xdqys", contactInput, '_YPpfg0vnnjh4LLJJ')
+            .then(
+                function (response) {
+                    console.log('SUCCESS!', response)
+                },
+                function (error) {
+                    console.log('FAILED', error)
+                }
+            )
+
+        //reset the input
         setIsContactSubmit(true);
+        setContactInput({
+            'Name': '',
+            'Phone number': '',
+            'Email': '',
+            'Message': ''
+        })
     }
     return (
         <div className='page Contact' name="CONTACT">
-            {/* 
-            <h2>Get in touch!</h2>
-            <div className='form'>
-                <div className='form__input'>
-                    <div className='form__textField'>
-                        <input type='text' placeholder='name' />
-                        <span className='form__textField--border'></span>
-                    </div>
-                    <div className='form__textField'>
-                        <input type='number' placeholder='Phone number' />
-                        <span className='form__textField--border'></span>
-                    </div>
-                    <div className='form__textField'>
-                        <input type='email' placeholder='email' />
-                        <span className='form__textField--border'></span>
-                    </div>
-                    <textarea type='message' height="500px" placeholder='message' className='form__input--message' />
-                </div>
-                <div className='contact__icons'>
-                    <div className='contact__icon--container'>
-                        <a href="mailto:donggnguyen12@gmail.com">
-                            <AiOutlineMail className='contact__icon--black' />
-                            <AiOutlineMail className='contact__icon' />
-                        </a>
-                    </div>
-                    <div className='contact__icon--container'>
-                        <a href="https://github.com/donggo-git">
-                            <AiFillGithub className='contact__icon--black' />
-                            <AiFillGithub className='contact__icon' />
-                        </a>
-                    </div>
-                    <div className='contact__icon--container'>
-                        <a href='https://www.linkedin.com/in/dong-nguyen-b531a9191/'>
-                            <AiFillLinkedin className='contact__icon--black' />
-                            <AiFillLinkedin className='contact__icon' />
-                        </a>
-                    </div>
-                    <div className='contact__icon--container'>
-                        <a href='tel:206-306-5818'>
-                            <AiFillPhone className='contact__icon--black' />
-                            <AiFillPhone className='contact__icon' />
-                        </a>
-                    </div>
-                </div>
-                <button>submit</button>
-    </div>*/}
             {/*form container*/}
 
             <Contact__FormContainer>
@@ -151,11 +173,14 @@ function Contact() {
                         <Contact__Form_inputLine
                             animationDelay={index}
                             isContactSubmit={isContactSubmit}
+                            key={inputItem}
                         >
 
                             <Contact__Form_input
                                 type='text'
                                 id={inputItem}
+                                value={contactInput[inputItem]}
+                                onChange={inputHandler}
                                 required
                             />
                             <Contact__Form_inputTitle for={inputItem}>{inputItem}</Contact__Form_inputTitle>
@@ -172,6 +197,9 @@ function Contact() {
                                     opacity: 0
                                 }
                         }
+                        id='Message'
+                        value={contactInput['Message']}
+                        onChange={inputHandler}
                     />
                     <Contact__Form_btn
                         type='submit'
@@ -194,14 +222,7 @@ const inputAppear = keyframes`
         transform: translateY(0);
     }
 `
-const inputFormAppear = keyframes`
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-`
+
 //style
 const Contact__FormContainer = styled.div`
     background-color: #5929F8;
