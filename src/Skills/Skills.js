@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './Skills.css'
 import { AiFillHtml5, AiFillGithub } from 'react-icons/ai'
 import { DiCss3, DiJavascript1, DiPython, DiJava, DiReact } from 'react-icons/di'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -46,7 +45,7 @@ function AboutMe() {
         setIsSkillNotice(!isSkillNotice)
     }
     return (
-        <SkillsContainer className='page' name="ABOUT ME">
+        <SkillsContainer className='page' name="SKILLS">
             <SkillTitle>My skills and knowledge</SkillTitle>
             <SkillList>
                 {skills.map(skill => (

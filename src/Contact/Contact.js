@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import './Contact.css'
 import styled, { keyframes } from 'styled-components'
-//import { Email } from './smtp'
 import emailjs from '@emailjs/browser'
 
 import image1 from './image1.svg'
@@ -63,6 +61,7 @@ function Contact() {
             }
         }
         //sending message
+
         emailjs.send("service_ziqugtn", "template_s7xdqys", contactInput, '_YPpfg0vnnjh4LLJJ')
             .then(
                 function (response) {
@@ -75,6 +74,7 @@ function Contact() {
 
         //reset the input
         setIsContactSubmit(true);
+
         setContactInput({
             'Name': '',
             'Phone number': '',
@@ -133,13 +133,14 @@ function Contact() {
                             {
                                 transform: 'translate(0,0)',
                                 opacity: 1,
-                                transitionDelay: '0.4s'
+                                transitionDelay: '0.4s',
                             } :
                             {
                                 transform: 'translate(0,50%)',
-                                opacity: 0
+                                opacity: 0,
                             }
                     }
+                    isContactSubmit={isContactSubmit}
                 >
                     <Contact__DoneMessage_btn
                         onClick={() => setIsContactSubmit(false)}
@@ -233,7 +234,18 @@ const Contact__FormContainer = styled.div`
     left: 50%;
     transform: translate(-50%,calc(-50% + 30px));
     display:flex;
+    flex-direction: row;
     border-radius: 5px;
+    @media(max-width: 1000px){
+        flex-direction: column;
+        height: fit-content;
+        padding: 30px 0;
+        overflow: hidden;
+    }
+    @media(max-width:800px){
+        width: 90vw;
+        
+    }
 `
 const Contact__PictureContainer = styled.div`
     height: 100%;
@@ -250,11 +262,25 @@ const Contact__PictureContainer = styled.div`
         left: 0;
         transition: all 0.4s;
     }
+    @media(max-width:1000px){
+        display: none;
+        svg{
+            display:none;
+        }
+    }
 `
 const Contact__DoneMessage_Container = styled.div`
     height: 100%;
     width: 50%;
     transition: all 0.4s;
+    @media(max-width:1000px){
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index:${({ isContactSubmit }) => isContactSubmit ? 10 : -10};
+        background-color: #5929F8
+    }
 `
 const Contact__Form_message = styled.textarea`
     background: none;
@@ -268,10 +294,14 @@ const Contact__Form_message = styled.textarea`
     padding: 5px;
     font-size: 18px;
     opacity: 0;
+    
 `
 const Contact__Form = styled.form`
     height: 100%;
     width: 50%;
+    @media(max-width:1000px){
+        width: 100%;
+    }
 `
 const Contact__Form_inputLine = styled.div`
     opacity: 0;

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import './Nav.css'
 
 function Nav() {
-    const links = ['HOME', 'ABOUT ME', 'PROJECTS', 'CONTACT']
+    const links = ['HOME', 'SKILLS', 'PROJECTS', 'CONTACT']
     //check nav burger
     const [isNavOn, setIsNavOn] = useState(true);
     const setNav = () => {
