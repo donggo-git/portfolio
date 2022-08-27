@@ -5,7 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { IoLogoFirebase } from 'react-icons/io5'
 import styled from 'styled-components'
 
-function AboutMe() {
+function Skills() {
     const [isSkillNotice, setIsSkillNotice] = useState(false);
     const skills = [
         {
@@ -95,6 +95,7 @@ const SkillTitle = styled.h3`
     font-weight: 400px;
     @media screen and (max-width:1000px){
         padding-top: 30px;
+        font-size: 25px;
     }
 `
 const SkillList = styled.div`
@@ -163,4 +164,4 @@ const CloseBtn = styled.button`
     color: white;
     cursor: pointer; 
 `
-export default AboutMe
+export default Skills

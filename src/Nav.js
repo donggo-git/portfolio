@@ -7,7 +7,7 @@ import './Nav.css'
 function Nav() {
     const links = ['HOME', 'SKILLS', 'PROJECTS', 'CONTACT']
     //check nav burger
-    const [isNavOn, setIsNavOn] = useState(true);
+    const [isNavOn, setIsNavOn] = useState(false);
     const setNav = () => {
         setIsNavOn(pre => !pre)
     }

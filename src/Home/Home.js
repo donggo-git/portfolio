@@ -63,7 +63,7 @@ function Home() {
             <ScrollDownBtn>
                 <Link Link
                     className='scrollDown_btn'
-                    to="ABOUT ME"
+                    to="SKILLS"
                     duration={400}
                     smooth={true}
                 >
@@ -131,6 +131,9 @@ const HelloBanner = styled.p`
 const FullName = styled.h1`
     font-weight: light;
     font-size: 40px;
+    @media(max-width:1000px){
+        font-size: 30px;
+    }
 `
 const TypingPointer = styled.span`
     color: rgb(89, 41, 248);
@@ -154,6 +157,10 @@ const ContactList = styled.ul`
 const Description = styled.p`
     width: 500px;
     margin-bottom: 30px;
+    opacity:0;
+    transform: translate(0,50%);
+    animation:${rotatePopUp} 0.2s linear forwards;
+    animation-delay: 1.4s;
     @media(max-width:1000px){
         width: 100%;
     }
@@ -188,11 +195,15 @@ const Avatar = styled.img`
     border-radius: 100px 200px 200px 200px;
     position: absolute;
     top:15%;
-    left:50%;
-    transform: translate(-50%,0%);
+    left:25%;
     z-index: 2;
+    opacity: 0;
+    transform: rotate(-90deg) translate(-50%,-50%);
+    animation:${rotatePopUp} 0.4s linear forwards;
+    animation-delay: 1s;
     @media(max-width:360px){
         width: 80%;
+        left: 6.25%;
     }
 `
 const AvatarShadow = styled.div`
@@ -200,13 +211,17 @@ const AvatarShadow = styled.div`
     height: 200px;
     width: 400px;
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top:25%;
+    left:12.5%;
     background-color: rgb(89, 41, 248);
     border-radius: 100px 100px 50px 200px;
+    opacity: 0;
+    transform: rotate(90deg) translate(50%,50%);
+    animation:${rotatePopUp} 0.4s linear forwards;
+    animation-delay: 1.4s;
     @media(max-width:600px){
         width:100%;
+        left: 6.25%;
     }
 `
 const ScrollDownBtn = styled.div`
@@ -215,13 +230,14 @@ const ScrollDownBtn = styled.div`
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%,0);
     font-size: 25px;
     color: rgb(0, 0, 0);
     transition: all 0.4s;
     cursor: pointer;
     :hover {
         color: rgb(89, 41, 248);
+        transform: translate(-50%,10px);
     }
 `
 
