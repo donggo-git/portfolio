@@ -45,17 +45,17 @@ function Contact() {
                 return;
             }
             //if phone number input value is not number
-            if (inputField == 'Phone number' && isNaN(Number(inputValue.split(' ').join('')))) {
+            if (inputField === 'Phone number' && isNaN(Number(inputValue.split(' ').join('')))) {
                 alert('Please check your phone number again, NOT NUMBER');
                 return;
             }
             //if phone number input value is negative cannot submit
-            if (inputField == 'Phone number' && Number(inputValue.split(' ').join('')) < 0) {
+            if (inputField === 'Phone number' && Number(inputValue.split(' ').join('')) < 0) {
                 alert('Invalid phone number, NEGATIVE NUMBER');
                 return;
             }
             //if email input is invalid
-            if (inputField == 'Email' && !emailValidate(inputValue)) {
+            if (inputField === 'Email' && !emailValidate(inputValue)) {
                 alert('Invalid email');
                 return;
             }
@@ -86,14 +86,15 @@ function Contact() {
         <div className='page Contact' name="CONTACT">
             {/*form container*/}
 
-            <Contact__FormContainer>
+            <ContactFormContainer>
                 {/*picture container */}
-                <Contact__PictureContainer
+                <ContactPictureContainer
                     style={{
                         left: `${isContactSubmit ? '50%' : '0%'}`
                     }}
                 >
                     <img src={image1}
+                        alt=""
                         height='100%'
                         width='100%'
                         style={
@@ -111,6 +112,7 @@ function Contact() {
                     />
                     <img src={image2}
                         height='100%'
+                        alt=""
                         width='100%'
                         style={
                             isContactSubmit ?
@@ -125,9 +127,9 @@ function Contact() {
                                 }
                         }
                     />
-                </Contact__PictureContainer>
+                </ContactPictureContainer>
                 { /*done message */}
-                <Contact__DoneMessage_Container
+                <ContactDoneMessageContainer
                     style={
                         isContactSubmit ?
                             {
@@ -142,22 +144,22 @@ function Contact() {
                     }
                     isContactSubmit={isContactSubmit}
                 >
-                    <Contact__DoneMessage_btn
+                    <ContactDoneMessageBtn
                         onClick={() => setIsContactSubmit(false)}
                     >
                         <AiOutlineArrowLeft />
 
-                    </Contact__DoneMessage_btn>
-                    <Contact__DoneMessage_Title>
+                    </ContactDoneMessageBtn>
+                    <ContactDoneMessageTitle>
                         Done!
-                    </Contact__DoneMessage_Title>
-                    <Contact__DoneMessage>
+                    </ContactDoneMessageTitle>
+                    <ContactDoneMessage>
                         Thank you for sending me a message, I'll contact you as soon as possible
-                    </Contact__DoneMessage>
-                </Contact__DoneMessage_Container>
+                    </ContactDoneMessage>
+                </ContactDoneMessageContainer>
                 {/*form */}
-                <Contact__Form onSubmit={submitFormHandler}>
-                    <Contact__Form_title
+                <ContactForm onSubmit={submitFormHandler}>
+                    <ContactFormTitle
                         style={
                             !isContactSubmit ?
                                 {
@@ -169,25 +171,25 @@ function Contact() {
                                 }
                         }
                     >Get in touch!
-                    </Contact__Form_title>
+                    </ContactFormTitle>
                     {formInputs.map((inputItem, index) => (
-                        <Contact__Form_inputLine
+                        <ContactFormInputLine
                             animationDelay={index}
                             isContactSubmit={isContactSubmit}
                             key={inputItem}
                         >
 
-                            <Contact__Form_input
+                            <ContactFormInput
                                 type='text'
                                 id={inputItem}
                                 value={contactInput[inputItem]}
                                 onChange={inputHandler}
                                 required
                             />
-                            <Contact__Form_inputTitle for={inputItem}>{inputItem}</Contact__Form_inputTitle>
-                        </Contact__Form_inputLine>
+                            <ContactFormInputTitle for={inputItem}>{inputItem}</ContactFormInputTitle>
+                        </ContactFormInputLine>
                     ))}
-                    <Contact__Form_message
+                    <ContactFormMessage
                         style={
                             !isContactSubmit ?
                                 {
@@ -202,13 +204,13 @@ function Contact() {
                         value={contactInput['Message']}
                         onChange={inputHandler}
                     />
-                    <Contact__Form_btn
+                    <ContactFormBtn
                         type='submit'
                     >
                         Submit
-                    </Contact__Form_btn>
-                </Contact__Form>
-            </Contact__FormContainer>
+                    </ContactFormBtn>
+                </ContactForm>
+            </ContactFormContainer>
         </div >
     )
 }
@@ -225,7 +227,7 @@ const inputAppear = keyframes`
 `
 
 //style
-const Contact__FormContainer = styled.div`
+const ContactFormContainer = styled.div`
     background-color: #5929F8;
     height: 80vh;
     width:70vw;
@@ -247,7 +249,7 @@ const Contact__FormContainer = styled.div`
         
     }
 `
-const Contact__PictureContainer = styled.div`
+const ContactPictureContainer = styled.div`
     height: 100%;
     width: 50%;
     background-color: white;
@@ -269,7 +271,7 @@ const Contact__PictureContainer = styled.div`
         }
     }
 `
-const Contact__DoneMessage_Container = styled.div`
+const ContactDoneMessageContainer = styled.div`
     height: 100%;
     width: 50%;
     transition: all 0.4s;
@@ -282,7 +284,7 @@ const Contact__DoneMessage_Container = styled.div`
         background-color: #5929F8
     }
 `
-const Contact__Form_message = styled.textarea`
+const ContactFormMessage = styled.textarea`
     background: none;
     border: 1px solid white;
     width: 60%;
@@ -296,14 +298,14 @@ const Contact__Form_message = styled.textarea`
     opacity: 0;
     
 `
-const Contact__Form = styled.form`
+const ContactForm = styled.form`
     height: 100%;
     width: 50%;
     @media(max-width:1000px){
         width: 100%;
     }
 `
-const Contact__Form_inputLine = styled.div`
+const ContactFormInputLine = styled.div`
     opacity: 0;
     position: relative;
     margin: 20px auto;
@@ -313,7 +315,7 @@ const Contact__Form_inputLine = styled.div`
     animation-fill-mode: forwards;
     animation-delay: ${({ animationDelay }) => `${0.2 * (animationDelay + 1)}s`}
 `
-const Contact__Form_inputTitle = styled.label`
+const ContactFormInputTitle = styled.label`
     position: absolute;
     height: 100%;
     width: 100%;
@@ -324,7 +326,7 @@ const Contact__Form_inputTitle = styled.label`
     color: white;
     transition: all 0.4s ease-out;
 `
-const Contact__Form_input = styled.input`
+const ContactFormInput = styled.input`
     border: none;
     background: none;
     color: white;
@@ -335,14 +337,14 @@ const Contact__Form_input = styled.input`
     :focus{
         outline: none;
     }
-    :focus~${Contact__Form_inputTitle},
-    :valid~${Contact__Form_inputTitle}{
+    :focus~${ContactFormInputTitle},
+    :valid~${ContactFormInputTitle}{
         transform: scale(0.7) translate(-20%, 0%);
         top: -60%;
         left: 0%;
     }
 `
-const Contact__Form_title = styled.h3`
+const ContactFormTitle = styled.h3`
     font-size: 25px;
     font-weight: 400;
     margin: 30px auto;
@@ -351,7 +353,7 @@ const Contact__Form_title = styled.h3`
     transition: all 0.4s ease-out;
 `
 
-const Contact__Form_btn = styled.button`
+const ContactFormBtn = styled.button`
     width: 60%;
     margin: 0 auto;
     padding: 10px 0;
@@ -370,7 +372,7 @@ const Contact__Form_btn = styled.button`
         background-color: #e7e7e7
     }
 `
-const Contact__DoneMessage_btn = styled.button`
+const ContactDoneMessageBtn = styled.button`
     background: none;
     border: 1.1px solid white;
     color: white;
@@ -385,13 +387,13 @@ const Contact__DoneMessage_btn = styled.button`
     }
     margin-bottom: 0;
 `
-const Contact__DoneMessage_Title = styled.h3`
+const ContactDoneMessageTitle = styled.h3`
     margin: 0 auto;
     font-size: 30px;
     width: fit-content;
     margin-bottom: 25px;
 `
-const Contact__DoneMessage = styled.p`
+const ContactDoneMessage = styled.p`
     width: 70%;
     margin: 0 auto;
     font-size: 18px;
