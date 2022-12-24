@@ -1,28 +1,14 @@
 import React, { useState } from 'react'
+import project from '../project'
 import './Projects.css'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import styled from 'styled-components'
 
 function Projects() {
+    AOS.init();
     const [projectFullDescription, setProjectFullDescription] = useState([false, false, false])
-    class project {
-        constructor(name, demoImgLink, link, codeLink, description, technologies_languages) {
-            this._name = name;
-            this._demoImgLink = demoImgLink;
-            this._link = link;
-            this._codeLink = codeLink;
-            this._description = description;
-            this._technologies_languages = technologies_languages;
-        }
-        getShorterDescription() {
-            if (window.innerWidth > 1000)
-                return this._description.split(' ').slice(0, 15).join(" ");
-            return this._description.split(' ').slice(0, 10).join(" ");
-        }
-        getFullDescription() {
-            return this._description
-        }
-    }
+
     const imgSlide = [
         //last slide clone,
         new project(
@@ -30,7 +16,7 @@ function Projects() {
             'https://github.com/donggo-git/portfolio/blob/main/src/Projects/Weather%20app.png?raw=true',
             ' https://donggo-git.github.io/weather-app/',
             'https://github.com/donggo-git/weather-app',
-            'A weather app finding user current location and show the weather of that location, showing weather of locations for 2 next days and 24 hours of the current day',
+            'A weather app finding user current location and show the weather of that location, showing weather of locations for 2 next days and 24 hours of the current day (because it uses free version API so please wait 1.5s when click allow to share your location)',
             'HTML, CSS, JavaScript, Reactjs, third party API: weatherapi'
         ),
         new project(
@@ -57,11 +43,25 @@ function Projects() {
         setProjectFullDescription(newProjectFullDescription)
     }
 
+    const projectApearAnimateDirection = (project_index) => {
+        if (window.innerWidth > 1000) {
+            return project_index % 2 === 0 ? 'fade-right' : 'fade-left'
+        }
+        return 'fade-up'
+    }
 
     return (
         <ProjectsList name="PROJECTS">
             {imgSlide.map((project, project_index) => (
-                <ProjectContainer key={project._name}>
+                <ProjectContainer
+                    key={project._name}
+                    data-aos={projectApearAnimateDirection(project_index)}
+                    data-aos-offset="200"
+                    data-aos-duration="300"
+                    data-aos-easing="ease-out"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+                >
                     <ProjectImage src={project._demoImgLink} project_index={project_index} />
                     <ProjectContent>
                         <ProjectName>{project._name}</ProjectName>
