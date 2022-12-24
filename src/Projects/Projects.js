@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Projects.css'
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+
 import styled from 'styled-components'
 
 function Projects() {
@@ -122,6 +122,7 @@ const ProjectImage = styled.img`
             `
 const ProjectContent = styled.div`
             width: 50%;
+            color:white;
             @media(max-width:1000px){
                 width: 100%;
             }
@@ -136,6 +137,7 @@ const ProjectDescription = styled.p`
             margin: 0 auto;
             font-size: 18px;
             transition: all 0.4s;
+            color:white;
             span{
                 font-weight: bold;
             }
