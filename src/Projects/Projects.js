@@ -75,7 +75,7 @@ function Projects() {
             }
         ]
 
-        getData('personal_projects',);
+        //getData('personal_projects',);
         for (let i = 0; i < project.length; i++) {
             //putData('personal_projects', project[i]);
         }
@@ -162,7 +162,8 @@ function Projects() {
                 >
                     <ProjectImage src={project.imgLink} project_index={project_index}
                         style={projectFullDescription[project_index] && window.innerWidth >= 1000 ? {
-                            width: '100%'
+                            width: '100%',
+                            height: 'auto'
                         } : {}}
                     />
                     <ProjectContent
@@ -181,8 +182,8 @@ function Projects() {
                         {
                             projectFullDescription[project_index] &&
                             <ProjectButtons>
-                                <ProjectBtn href={project.demoLink} target='blank'>Demo</ProjectBtn>
-                                <ProjectBtn href={project.codeLink} target='blank'>Github</ProjectBtn>
+                                {project.demoLink && <ProjectBtn href={project.demoLink} target='blank'>Demo</ProjectBtn>}
+                                {project.codeLink && <ProjectBtn href={project.codeLink} target='blank'>Github</ProjectBtn>}
                             </ProjectButtons>
                         }
 
@@ -236,7 +237,7 @@ const ProjectContainer = styled.div`
             `
 const ProjectImage = styled.img`
             width: 100%;
-            
+            height: 50%;
             @media(max-width:1000px){
                 order: 0;
                 width: 100%;

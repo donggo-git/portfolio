@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { AiFillHtml5, AiFillGithub } from 'react-icons/ai'
 import { DiCss3, DiJavascript1, DiPython, DiJava, DiReact } from 'react-icons/di'
+import { AiFillDatabase } from "react-icons/ai";
 import { AiOutlineClose } from 'react-icons/ai'
 import { IoLogoFirebase } from 'react-icons/io5'
+import { SiTypescript, SiDjango } from 'react-icons/si'
+import { FaAws } from "react-icons/fa";
 import styled from 'styled-components'
+import './Skills.css'
 
 function Skills() {
     const [isSkillNotice, setIsSkillNotice] = useState(false);
@@ -29,8 +33,42 @@ function Skills() {
             icon: <DiJava className='icon' />
         },
         {
+            name: 'C++',
+            icon: <p className='icon'>C++</p>
+        },
+        {
+            name: 'C#',
+            icon: <p className='icon'>C#</p>
+        },
+        {
+            name: 'Typescript',
+            icon: <SiTypescript className='icon' />
+        },
+        {
             name: 'REACTJS',
             icon: <DiReact className='icon' />
+        },
+        {
+            name: 'NodeJS',
+            icon: <p className='icon'>NodeJS</p>
+        },
+        {
+            name: 'Express.js',
+            icon: <p className='icon'>Express.js</p>
+        }, {
+            name: 'Django',
+            icon: <SiDjango className='icon' />
+        }, {
+            name: 'ASP.NET core',
+            icon: <p className='icon'>.NET</p>
+        },
+        {
+            name: 'SQL',
+            icon: <AiFillDatabase className='icon' />
+        },
+        {
+            name: 'AWS',
+            icon: <FaAws className='icon' />
         },
         {
             name: 'GITHUB',
@@ -85,6 +123,7 @@ const SkillsContainer = styled.div`
 background: linear-gradient(0deg, rgba(72, 39, 182, 0.63), rgba(72, 39, 182, 0.63)),
 linear-gradient(0deg, #5929F8, #5929F8);
 position: relative;
+padding-bottom: 30px;
 `
 const SkillTitle = styled.h3`
     padding: 30px 0;
@@ -101,11 +140,12 @@ const SkillTitle = styled.h3`
 const SkillList = styled.div`
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 12vw 12vw 12vw 12vw;
+    grid-template-columns: 12vw 12vw 12vw 12vw 12vw;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
     width: 60%;
-    height: 50vh;
+    height: 100%;
     @media screen and (max-width:1000px){
         width: 80%;
         grid-template-columns: 50% 50%;
@@ -130,7 +170,7 @@ const SkillItem = styled.div`
     }
 `
 const SkillItemName = styled.p`
-    font-size: 20px;
+    font-size: 15px;
 `
 const SkillNotice = styled.div`
     width: 60%;

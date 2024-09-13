@@ -40,9 +40,7 @@ function Home() {
                     </ContactList >
                     {/*description */}
                     <Description Description >
-                        Hi there. I’m Dong, a CSC student who passionate with building website.
-                        Lack of experience, but work hard and enthusiastic.
-                        Looking for internship position.
+                        Hi there. I’m Dong, a CSC student from UWB who passionate with building website, who's looking for new opportunity in software engineer position.
                     </Description >
                     {/*Resume Button */}
                     <ResumeBtn ResumeBtn
