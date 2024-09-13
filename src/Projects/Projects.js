@@ -5,11 +5,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import styled from 'styled-components'
 import AWS from 'aws-sdk';
-
 AWS.config.update({
-    region: 'us-east-1', // e.g., 'us-west-2'
-    accessKeyId: 'AKIATLZD6WJQWZAL4IGO',
-    secretAccessKey: '2FYra7W6OuBUwzWW3RCBlDJZS5BMaORHyKZHk6QL',
+    region: process.env.REACT_APP_AWS_REGION,
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
 });
 
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
