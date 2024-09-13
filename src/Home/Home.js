@@ -46,7 +46,7 @@ function Home() {
                     </Description >
                     {/*Resume Button */}
                     <ResumeBtn ResumeBtn
-                        href="https://scedu-my.sharepoint.com/:w:/g/personal/dong_g_nguyen_seattlecolleges_edu/EVnGwpxdc8xAvB6ziInlD4QBVfxuY-gGDvSMvt0LOkV4mg?e=kSt9z3"
+                        href="https://uwnetid-my.sharepoint.com/:w:/r/personal/dongn12_uw_edu/Documents/Education.docx?d=wd424823ce0b447b699c1d671b15a00c2&csf=1&web=1&e=bDS7X2"
                         target='blank'
                     >
                         Resume
