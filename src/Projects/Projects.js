@@ -209,6 +209,7 @@ const ProjectContainer = styled.div`
             height: 350px;
             background-color: rgb(89, 41, 248);
             box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            cursor: pointer;
             @media(max-width:1000px){
                 flex-direction: column;
             }

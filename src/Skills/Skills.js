@@ -106,12 +106,12 @@ function Skills() {
                 </CloseBtn>
                 <ul>
                     <li>
-                        Basic level of HTML, CSS, Javascript, React (learn from Udemy, and Freecodecamp)
+                        Basic level of HTML, CSS, Javascript, Typescript, React, NodeJS, Express.js (learn from Udemy, and Freecodecamp)
                     </li>
                     <li>
-                        Basic level of Python and Java (learned from South Seattle College)                    </li>
+                        Basic level of  SQL, MySQL, Python, Java, C++ and C#, (learned from South Seattle College and University of Washington)                    </li>
                     <li>
-                        Basic level of github and firebase (learned from Youtube)
+                        Basic level of github, firebase and AWS (learned from Youtube)
                     </li>
                 </ul>
             </SkillNotice>
