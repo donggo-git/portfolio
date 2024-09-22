@@ -4,15 +4,9 @@ import './Projects.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import styled from 'styled-components'
-import AWS from 'aws-sdk';
-AWS.config.update({
-    region: process.env.REACT_APP_AWS_REGION,
-    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-});
+import { getData } from '../ultility/handleAWSData';
 
-const dynamoDB = new AWS.DynamoDB.DocumentClient();
-const putData = async (tableName, item) => {
+/*const putData = async (tableName, item) => {
     const params = {
         TableName: tableName,
         Item: item,
@@ -24,7 +18,7 @@ const putData = async (tableName, item) => {
     } catch (error) {
         console.error('Error adding/updating data:', error);
     }
-};
+};*/
 
 
 
@@ -33,21 +27,6 @@ function Projects() {
     AOS.init();
     const [projectFullDescription, setProjectFullDescription] = useState([false, false, false])
     const [projectList, setProjectList] = useState();
-
-    const getData = async (tableName, key) => {
-        const params = {
-            TableName: tableName
-        };
-
-        try {
-            const data = await dynamoDB.scan(params).promise();
-            console.log('Data retrieved:', data.Items);
-            setProjectList(data.Items);
-            return data.Items;
-        } catch (error) {
-            console.error('Error retrieving data:', error);
-        }
-    };
     useEffect(() => {
         const project = [
             {
@@ -74,8 +53,10 @@ function Projects() {
                 technologies_and_languages: 'C#, .NET, HTML, CSS, Javascript, MySQL, SQL'
             }
         ]
-
-        //getData('personal_projects',);
+        const retrieveData = async () => {
+            setProjectList(await getData('personal_projects',));
+        }
+        //retrieveData();
         for (let i = 0; i < project.length; i++) {
             //putData('personal_projects', project[i]);
         }

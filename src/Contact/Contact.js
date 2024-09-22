@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 import image1 from './image1.svg'
 import image2 from './image2.svg'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
-
+import { sendEmail } from '../ultility/handleAWSData'
 
 function Contact() {
 
@@ -60,6 +60,9 @@ function Contact() {
                 return;
             }
         }
+
+        sendEmail(contactInput);
+
         //sending message
 
         emailjs.send("service_ziqugtn", "template_s7xdqys", contactInput, '_YPpfg0vnnjh4LLJJ')
