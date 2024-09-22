@@ -56,10 +56,10 @@ function Projects() {
         const retrieveData = async () => {
             setProjectList(await getData('personal_projects',));
         }
-        //retrieveData();
-        for (let i = 0; i < project.length; i++) {
+        retrieveData();
+        /*for (let i = 0; i < project.length; i++) {
             //putData('personal_projects', project[i]);
-        }
+        }*/
         //putData('personal_projects', project);
     }, [])
     const imgSlide = [
